@@ -19,23 +19,6 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
    SPECIES DATA — prototype render slots
    ============================================================ */
 const SPECIES = {
-  "void-claw": {
-    id: "void-claw", name: "Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
-    img: "assets/void-claw.jpg",
-    alt: "Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, cool futuristic purple neuro-visor and glossy shadow-bioplate fashion",
-    ac: "#a855f7", ac2: "#6d28d9", ac3: "#e9d5ff",
-    specimen: "GN-0092",
-    base: "APEX RAPTOR",
-    inspiration: "VELOCIRAPTOR × NEURO-STEALTH",
-    surface: "VOID_SCALE",
-    fashion: "NEURO_VISOR + SHADOW_BIOPLATE",
-    habitat: "Nocturnal biozone",
-    temperament: "SILENT / LETHAL / INTELLIGENT",
-    adaptClass: "APEX_RAPTOR",
-    stability: 91, rarity: "ULTRA RARE",
-    status: "FLAGSHIP SPECIMEN",
-    blurb: "A fashion-engineered apex raptor. Void Claw tracks micro-motion through its neuro-visor, wears shadow bioplate like couture, and treats every corridor as hunting ground.",
-  },
   nova: {
     id: "nova", name: "Aathira\u2019s Nova", painted: "Nova", ghost: "NOVA",
     img: "assets/nova.jpg",
@@ -49,9 +32,27 @@ const SPECIES = {
     habitat: "Nocturnal botanical dome",
     temperament: "CALM / CURIOUS",
     adaptClass: "SENSORY-PRIME",
-    stability: 94, rarity: "RARE",
-    status: "SIGNATURE COMPANION",
+    stability: 94, rarity: "FLAGSHIP",
+    status: "FLAGSHIP COMPANION",
     blurb: "The first icon of Genome Noir. Nova reads ultraviolet weather through her visor, hums when curious, and treats every stranger as a future friend.",
+  },
+  "void-claw": {
+    id: "void-claw", name: "Shrujal\u2019s Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
+    img: "assets/void-claw.jpg",
+    alt: "Shrujal's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, venom-green neuro-visor and glossy shadow-bioplate fashion",
+    ac: "#86f000", ac2: "#1f7a3d", ac3: "#d8ffb0",
+    specimen: "GN-0092",
+    base: "APEX RAPTOR",
+    inspiration: "VELOCIRAPTOR × NEURO-STEALTH",
+    origin: "EXPERIMENTAL_PREDATOR_LINE",
+    surface: "VOID_SCALE",
+    fashion: "NEURO_VISOR + SHADOW_BIOPLATE",
+    habitat: "Nocturnal biozone",
+    temperament: "SILENT / LETHAL / INTELLIGENT",
+    adaptClass: "APEX_RAPTOR",
+    stability: 91, rarity: "ULTRA RARE",
+    status: "ACTIVE SPECIMEN",
+    blurb: "A bio-engineered apex raptor built for shadow pursuit, stealth dominance and high-sensory precision. The silent apex of the Genome Noir collection.",
   },
   "code-red": {
     id: "code-red", name: "Code Red", painted: "Code Red", ghost: "CODE RED",
@@ -139,7 +140,7 @@ const SPECIES = {
     blurb: "Its veins glow brighter near pollutants — a walking water-quality report. Acid Ghost patrols at night and sleeps wherever the moss is thickest.",
   },
 };
-const SPECIES_ORDER = ["void-claw", "nova", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
+const SPECIES_ORDER = ["nova", "void-claw", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
 const TURNTABLE_FRAMES = 8;
 function turntableSrc(id, i) {
   return `assets/turntable/${id}-${((i % TURNTABLE_FRAMES) + TURNTABLE_FRAMES) % TURNTABLE_FRAMES}.jpg`;
@@ -261,7 +262,7 @@ const ENV_LABELS = { temperature: "TEMPERATURE", humidity: "HUMIDITY", light: "L
    GLOBAL STATE
    ============================================================ */
 const state = {
-  specimen: "void-claw",
+  specimen: "nova",
   draft: null,
   mode: "species",
   habitat: "dome",
@@ -270,16 +271,16 @@ const state = {
   carePet: null,
 };
 
-function freshDraft(base = "void-claw") {
+function freshDraft(base = "nova") {
   return {
     base, hybridWith: null, description: "",
-    form: "reptilian", surface: "scales",
-    appendages: ["legs"], sensory: ["infrared sensing"], adaptations: ["camouflage"],
-    microbiome: [], behaviour: ["nocturnal", "independent"], fashion: ["neon sensory visor"],
+    form: "mammalian", surface: "wool",
+    appendages: ["legs"], sensory: ["uv vision"], adaptations: [],
+    microbiome: [], behaviour: ["curious", "calm"], fashion: ["neon sensory visor"],
     modules: [],
   };
 }
-state.draft = freshDraft("void-claw");
+state.draft = freshDraft("nova");
 
 /* ============================================================
    THEME ENGINE
@@ -409,13 +410,17 @@ function habitatCompat(draft, env) {
    HERO FLOAT — gentle presence (turntable handles the 360°)
    ============================================================ */
 (function heroMotion() {
-  const render = $("#heroRender");
-  if (!render) return;
+  const renders = [$("#heroRender"), $("#voidHeroRender")].filter(Boolean);
+  if (!renders.length) return;
   function frame(t) {
-    if (reduceMotion.matches) { render.style.transform = ""; requestAnimationFrame(frame); return; }
-    const float = Math.sin(t * 0.00055) * 6;
-    const breathe = 1 + Math.sin(t * 0.001) * 0.006;
-    render.style.transform = `translateY(${float.toFixed(2)}px) scale(${breathe.toFixed(4)})`;
+    for (const render of renders) {
+      if (reduceMotion.matches) { render.style.transform = ""; continue; }
+      const phase = render.id === "voidHeroRender" ? 0.7 : 0;
+      const float = Math.sin(t * 0.00055 + phase) * 6;
+      const tilt = Math.sin(t * 0.00035 + phase) * (render.id === "voidHeroRender" ? 1.2 : 0.8);
+      const breathe = 1 + Math.sin(t * 0.001 + phase) * 0.006;
+      render.style.transform = `translateY(${float.toFixed(2)}px) rotateZ(${tilt.toFixed(2)}deg) scale(${breathe.toFixed(4)})`;
+    }
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -426,7 +431,7 @@ function habitatCompat(draft, env) {
    Uses 8 photoreal angle frames per species and crossfades
    between them so the animal itself turns — not the image card.
    ============================================================ */
-function createTurntable({ a, b, periodMs = 16000, initialSpecies = "void-claw" }) {
+function createTurntable({ a, b, periodMs = 16000, initialSpecies = "nova" }) {
   let speciesId = "nova";
   let angle = 0;
   let last = 0;
@@ -485,18 +490,24 @@ function createTurntable({ a, b, periodMs = 16000, initialSpecies = "void-claw" 
   };
 }
 
-const showcaseTurntable = createTurntable({
+const showcaseTurntable = ($("#showImgA") && $("#showImgB")) ? createTurntable({
   a: $("#showImgA"),
   b: $("#showImgB"),
   periodMs: 16000,
-  initialSpecies: "void-claw",
-});
-const heroTurntable = createTurntable({
+  initialSpecies: "nova",
+}) : null;
+const heroTurntable = ($("#heroImgA") && $("#heroImgB")) ? createTurntable({
   a: $("#heroImgA"),
   b: $("#heroImgB"),
   periodMs: 18000,
+  initialSpecies: "nova",
+}) : null;
+const voidHeroTurntable = ($("#voidHeroImgA") && $("#voidHeroImgB")) ? createTurntable({
+  a: $("#voidHeroImgA"),
+  b: $("#voidHeroImgB"),
+  periodMs: 18000,
   initialSpecies: "void-claw",
-});
+}) : null;
 SPECIES_ORDER.forEach(preloadTurntable);
 
 /* Pause turntables while off-screen — saves battery and keeps scroll smooth */
@@ -504,6 +515,7 @@ SPECIES_ORDER.forEach(preloadTurntable);
   if (!("IntersectionObserver" in window)) return;
   const map = new Map([
     [$("#heroRender"), heroTurntable],
+    [$("#voidHeroRender"), voidHeroTurntable],
     [$("#showRender"), showcaseTurntable],
   ]);
   const io = new IntersectionObserver((entries) => {
@@ -512,7 +524,7 @@ SPECIES_ORDER.forEach(preloadTurntable);
       if (tt) tt.setPaused(!en.isIntersecting);
     }
   }, { rootMargin: "160px" });
-  for (const el of map.keys()) if (el) io.observe(el);
+  for (const [el, tt] of map.entries()) if (el && tt) io.observe(el);
 })();
 
 /* Genome Lab CTA lives under the creature on desktop, at the end on phones */
@@ -594,14 +606,16 @@ function renderShowcase() {
   $("#showCardBlurb").textContent = sp.blurb;
   $("#showSpec").innerHTML = `
     <p>ID: <b>#${sp.specimen}</b></p>
-    <p>NAME: <b>${esc(sp.name.toUpperCase().replace(/\s/g, "_"))}</b></p>
+    <p>NAME: <b>${esc(sp.name.toUpperCase().replace(/\s/g, "_").replace(/’/g, "").replace(/'/g, ""))}</b></p>
     <p>BASE: <b>${sp.base}</b></p>
+    ${sp.origin ? `<p>ORIGIN: <b>${sp.origin}</b></p>` : ""}
     <p>SURFACE: <b>${sp.surface}</b></p>
     <p>FASHION-TECH: <b>${sp.fashion}</b></p>
     <p>TEMPERAMENT: <b>${sp.temperament}</b></p>`;
   $("#showCardData").innerHTML = `
     <dt>ADAPTATION CLASS</dt><dd>${sp.adaptClass}</dd>
     <dt>BIOLOGICAL INSPIRATION</dt><dd>${sp.inspiration}</dd>
+    ${sp.origin ? `<dt>ORIGIN</dt><dd>${sp.origin}</dd>` : ""}
     <dt>HABITAT</dt><dd>${sp.habitat.toUpperCase()}</dd>
     <dt>RARITY</dt><dd>${sp.rarity}</dd>
     <dt>COMPANION STATUS</dt><dd>${sp.status}</dd>`;
@@ -1390,7 +1404,8 @@ burger.addEventListener("click", () => {
 $$("[data-navlink]").forEach((a) => {
   a.addEventListener("click", () => {
     closeMenu();
-    if (a.hasAttribute("data-flagship-link")) selectSpecimen("void-claw");
+    if (a.hasAttribute("data-nova-link")) selectSpecimen("nova");
+    if (a.hasAttribute("data-void-link")) selectSpecimen("void-claw");
   });
 });
 
