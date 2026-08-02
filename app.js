@@ -22,7 +22,7 @@ const SPECIES = {
   "void-claw": {
     id: "void-claw", name: "Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
     img: "assets/void-claw.jpg",
-    alt: "Void Claw — a photorealistic biotech-enhanced apex raptor with charcoal void-scale skin, venom-green neuro-visor and slim stealth collar",
+    alt: "Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, venom-green neuro-visor and glossy shadow-bioplate fashion",
     ac: "#86f000", ac2: "#1f7a3d", ac3: "#d8ffb0",
     specimen: "GN-0092",
     base: "APEX RAPTOR",
@@ -34,7 +34,7 @@ const SPECIES = {
     adaptClass: "APEX_RAPTOR",
     stability: 91, rarity: "ULTRA RARE",
     status: "FLAGSHIP SPECIMEN",
-    blurb: "A stealth-engineered apex raptor. Void Claw reads micro-motion through its neuro-visor, moves like a shadow, and treats every corridor as hunting ground.",
+    blurb: "A fashion-engineered apex raptor. Void Claw tracks micro-motion through its neuro-visor, wears shadow bioplate like couture, and treats every corridor as hunting ground.",
   },
   nova: {
     id: "nova", name: "Aathira\u2019s Nova", painted: "Nova", ghost: "NOVA",
