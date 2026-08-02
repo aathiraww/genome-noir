@@ -13,12 +13,12 @@
   --grey: #92929d;
   --line: rgba(247, 247, 243, 0.12);
 
-  /* specimen accent (defaults: Void Claw venom green) */
-  --ac: #86f000;
-  --ac2: #1f7a3d;
-  --ac3: #d8ffb0;
-  --ac-dim: rgba(134, 240, 0, 0.14);
-  --ac-glow: rgba(134, 240, 0, 0.32);
+  /* specimen accent (defaults: Void Claw futuristic purple) */
+  --ac: #a855f7;
+  --ac2: #6d28d9;
+  --ac3: #e9d5ff;
+  --ac-dim: rgba(168, 85, 247, 0.14);
+  --ac-glow: rgba(168, 85, 247, 0.32);
 
   --font-cond: "Anton", "Arial Narrow", sans-serif;
   --font-paint: "Permanent Marker", cursive;

@@ -22,8 +22,8 @@ const SPECIES = {
   "void-claw": {
     id: "void-claw", name: "Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
     img: "assets/void-claw.jpg",
-    alt: "Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, venom-green neuro-visor and glossy shadow-bioplate fashion",
-    ac: "#86f000", ac2: "#1f7a3d", ac3: "#d8ffb0",
+    alt: "Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, cool futuristic purple neuro-visor and glossy shadow-bioplate fashion",
+    ac: "#a855f7", ac2: "#6d28d9", ac3: "#e9d5ff",
     specimen: "GN-0092",
     base: "APEX RAPTOR",
     inspiration: "VELOCIRAPTOR × NEURO-STEALTH",
