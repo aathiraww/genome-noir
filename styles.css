@@ -13,12 +13,12 @@
   --grey: #92929d;
   --line: rgba(247, 247, 243, 0.12);
 
-  /* specimen accent (defaults: Aathira's Nova) */
-  --ac: #ff2ea6;
-  --ac2: #8b5cf6;
-  --ac3: #46e6e6;
-  --ac-dim: rgba(255, 46, 166, 0.14);
-  --ac-glow: rgba(255, 46, 166, 0.32);
+  /* specimen accent (defaults: Void Claw futuristic purple) */
+  --ac: #a855f7;
+  --ac2: #6d28d9;
+  --ac3: #e9d5ff;
+  --ac-dim: rgba(168, 85, 247, 0.14);
+  --ac-glow: rgba(168, 85, 247, 0.32);
 
   --font-cond: "Anton", "Arial Narrow", sans-serif;
   --font-paint: "Permanent Marker", cursive;
