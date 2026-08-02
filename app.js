@@ -39,8 +39,8 @@ const SPECIES = {
   "void-claw": {
     id: "void-claw", name: "Shrujal\u2019s Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
     img: "assets/void-claw.jpg",
-    alt: "Shrujal's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, venom-green neuro-visor and glossy shadow-bioplate fashion",
-    ac: "#86f000", ac2: "#1f7a3d", ac3: "#d8ffb0",
+    alt: "Shrujal's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, cool futuristic purple neuro-visor and glossy shadow-bioplate fashion",
+    ac: "#a855f7", ac2: "#6d28d9", ac3: "#e9d5ff",
     specimen: "GN-0092",
     base: "APEX RAPTOR",
     inspiration: "VELOCIRAPTOR × NEURO-STEALTH",
@@ -52,7 +52,7 @@ const SPECIES = {
     adaptClass: "APEX_RAPTOR",
     stability: 91, rarity: "ULTRA RARE",
     status: "ACTIVE SPECIMEN",
-    blurb: "A bio-engineered apex raptor built for shadow pursuit, stealth dominance and high-sensory precision. The silent apex of the Genome Noir collection.",
+    blurb: "A bio-engineered apex raptor built for shadow pursuit, stealth dominance and high-sensory precision. The silent purple apex of the Genome Noir collection.",
   },
   "code-red": {
     id: "code-red", name: "Code Red", painted: "Code Red", ghost: "CODE RED",
@@ -140,7 +140,7 @@ const SPECIES = {
     blurb: "Its veins glow brighter near pollutants — a walking water-quality report. Acid Ghost patrols at night and sleeps wherever the moss is thickest.",
   },
 };
-const SPECIES_ORDER = ["nova", "void-claw", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
+const SPECIES_ORDER = ["void-claw", "nova", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
 const TURNTABLE_FRAMES = 8;
 function turntableSrc(id, i) {
   return `assets/turntable/${id}-${((i % TURNTABLE_FRAMES) + TURNTABLE_FRAMES) % TURNTABLE_FRAMES}.jpg`;
@@ -262,7 +262,7 @@ const ENV_LABELS = { temperature: "TEMPERATURE", humidity: "HUMIDITY", light: "L
    GLOBAL STATE
    ============================================================ */
 const state = {
-  specimen: "nova",
+  specimen: "void-claw",
   draft: null,
   mode: "species",
   habitat: "dome",
@@ -271,16 +271,16 @@ const state = {
   carePet: null,
 };
 
-function freshDraft(base = "nova") {
+function freshDraft(base = "void-claw") {
   return {
     base, hybridWith: null, description: "",
-    form: "mammalian", surface: "wool",
-    appendages: ["legs"], sensory: ["uv vision"], adaptations: [],
-    microbiome: [], behaviour: ["curious", "calm"], fashion: ["neon sensory visor"],
+    form: "reptilian", surface: "scales",
+    appendages: ["legs"], sensory: ["infrared sensing"], adaptations: ["camouflage"],
+    microbiome: [], behaviour: ["nocturnal", "independent"], fashion: ["neon sensory visor"],
     modules: [],
   };
 }
-state.draft = freshDraft("nova");
+state.draft = freshDraft("void-claw");
 
 /* ============================================================
    THEME ENGINE
@@ -494,7 +494,7 @@ const showcaseTurntable = ($("#showImgA") && $("#showImgB")) ? createTurntable({
   a: $("#showImgA"),
   b: $("#showImgB"),
   periodMs: 16000,
-  initialSpecies: "nova",
+  initialSpecies: "void-claw",
 }) : null;
 const heroTurntable = ($("#heroImgA") && $("#heroImgB")) ? createTurntable({
   a: $("#heroImgA"),

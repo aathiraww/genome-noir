@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Permanent+Marker&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-specimen="nova">
+<body data-specimen="void-claw">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -23,8 +23,8 @@
   </a>
   <nav class="nav-links" id="navLinks" aria-label="Primary">
     <a href="#home" data-navlink>Home</a>
-    <a href="#species" data-navlink data-nova-link>Nova</a>
-    <a href="#void-claw" data-navlink data-void-link>Void Claw</a>
+    <a href="#home" data-navlink data-void-link>Void Claw</a>
+    <a href="#nova" data-navlink data-nova-link>Nova</a>
     <a href="#species" data-navlink>Species</a>
     <a href="#create" data-navlink>Create</a>
     <a href="#lab" data-navlink>Genome Lab</a>
@@ -34,7 +34,7 @@
     <a href="#about" data-navlink>About</a>
   </nav>
   <div class="nav-right">
-    <span class="nav-meta mono" id="navMeta">SPECIMEN GN-0001 [●]</span>
+    <span class="nav-meta mono" id="navMeta">SPECIMEN GN-0092 [●]</span>
     <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span>
     </button>
@@ -43,61 +43,15 @@
 
 <main id="main">
 
-<!-- ======================= HERO — AATHIRA'S NOVA ======================= -->
-<section class="hero" id="home" aria-label="Aathira's Nova — flagship companion">
-  <div class="hero-ghost" aria-hidden="true"><span>GENOME</span><span>NOIR</span></div>
-
-  <div class="hero-stage" id="heroStage">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <figure class="render-slot hero-render turntable" id="heroRender" data-render-slot="hero">
-      <!-- Prototype render slot: swap src for a commissioned/generated creature render -->
-      <img src="assets/turntable/nova-0.jpg" alt="Aathira's Nova — a luxurious photorealistic alpaca companion with pastel wool, a glowing pink sensory visor and a biotech collar, lit by magenta rim light on a black background" id="heroImgA" class="tt-frame is-front" fetchpriority="high" decoding="async" />
-      <img src="assets/turntable/nova-1.jpg" alt="" id="heroImgB" class="tt-frame" aria-hidden="true" decoding="async" />
-      <div class="scanline" aria-hidden="true"></div>
-      <div class="render-vignette" aria-hidden="true"></div>
-    </figure>
-  </div>
-
-  <div class="hero-copy">
-    <p class="eyebrow mono">THE SYNTHETIC PET LAB — FLAGSHIP SPECIMEN</p>
-    <h1 class="hero-title">
-      <span class="ht-line">Meet <em class="painted">Aathira&rsquo;s&nbsp;Nova</em>,</span>
-      <span class="ht-line">create yours today</span>
-    </h1>
-    <p class="hero-sub">The first icon of Genome Noir. Enter the synthetic pet lab and invent a bio-companion entirely your own.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-solid magnetic" href="#species" data-navlink data-nova-link>MEET NOVA</a>
-      <a class="btn btn-line magnetic" href="#create" data-navlink>CREATE YOURS <span aria-hidden="true">↗</span></a>
-    </div>
-  </div>
-
-  <aside class="hero-spec mono" aria-label="Specimen metadata">
-    <p>ID: #GN-0001</p>
-    <p>NAME: AATHIRA&rsquo;S_NOVA</p>
-    <p>WOOL: PASTEL_CLOUD [FLAGSHIP]</p>
-    <p>VISOR: NOVA_SENSORY_MK-II</p>
-    <p>CLASS: SENSORY-PRIME</p>
-  </aside>
-
-  <aside class="hero-tag mono" aria-hidden="true">
-    <p>DESIGN THE GENOME.</p>
-    <p>SHAPE THE SPECIES.</p>
-    <p>RAISE THE FUTURE.</p>
-  </aside>
-
-  <div class="hero-scroll mono" aria-hidden="true">SCROLL&nbsp;— 01 / SHRUJAL&rsquo;S VOID CLAW</div>
-  <div class="hero-footer mono" aria-hidden="true">SYNTHETIC BIOLOGY ATELIER &nbsp;•&nbsp; SPECULATIVE ORGANISM DESIGN &nbsp;•&nbsp; COMPANION-GRADE LIFEFORMS &nbsp;•&nbsp; GENOME NOIR EXCLUSIVE</div>
-</section>
-
-<!-- ======================= HERO — SHRUJAL'S VOID CLAW ======================= -->
-<section class="hero hero-void" id="void-claw" aria-label="Shrujal's Void Claw — signature apex raptor">
+<!-- ======================= HERO — SHRUJAL'S VOID CLAW (FIRST) ======================= -->
+<section class="hero hero-void" id="home" aria-label="Shrujal's Void Claw — signature apex raptor">
   <div class="hero-ghost" aria-hidden="true"><span>VOID</span><span>CLAW</span></div>
 
   <div class="hero-stage" id="voidHeroStage">
     <div class="hero-glow" aria-hidden="true"></div>
     <figure class="render-slot hero-render turntable" id="voidHeroRender" data-render-slot="void-hero">
-      <img src="assets/turntable/void-claw-0.jpg" alt="Shrujal's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, venom-green neuro-visor and glossy shadow-bioplate fashion" id="voidHeroImgA" class="tt-frame is-front" loading="lazy" decoding="async" />
-      <img src="assets/turntable/void-claw-1.jpg" alt="" id="voidHeroImgB" class="tt-frame" aria-hidden="true" loading="lazy" decoding="async" />
+      <img src="assets/turntable/void-claw-0.jpg" alt="Shrujal's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, cool futuristic purple neuro-visor and glossy shadow-bioplate fashion" id="voidHeroImgA" class="tt-frame is-front" fetchpriority="high" decoding="async" />
+      <img src="assets/turntable/void-claw-1.jpg" alt="" id="voidHeroImgB" class="tt-frame" aria-hidden="true" decoding="async" />
       <div class="scanline" aria-hidden="true"></div>
       <div class="render-vignette" aria-hidden="true"></div>
     </figure>
@@ -105,10 +59,10 @@
 
   <div class="hero-copy">
     <p class="eyebrow mono">THE SYNTHETIC PET LAB — ULTRA RARE SPECIMEN</p>
-    <h2 class="hero-title">
+    <h1 class="hero-title">
       <span class="ht-line">Meet <em class="painted">Shrujal&rsquo;s&nbsp;Void&nbsp;Claw</em></span>
-    </h2>
-    <p class="hero-sub">Enter the shadow line of Genome Noir and meet its stealth apex — a bio-engineered raptor specimen designed for silent pursuit, venom-lit precision and nocturnal dominance.</p>
+    </h1>
+    <p class="hero-sub">Enter the shadow line of Genome Noir and meet its stealth apex — a bio-engineered raptor specimen designed for silent pursuit, violet-lit precision and nocturnal dominance.</p>
     <div class="hero-ctas">
       <a class="btn btn-solid magnetic" href="#species" data-navlink data-void-link>MEET VOID CLAW</a>
       <a class="btn btn-line magnetic" href="#create" data-navlink>CREATE YOURS <span aria-hidden="true">↗</span></a>
@@ -131,18 +85,63 @@
     <p>NOCTURNAL DOMINANCE.</p>
   </aside>
 
-  <div class="hero-scroll mono" aria-hidden="true">SCROLL&nbsp;— 02 / SIGNATURE SPECIES</div>
+  <div class="hero-scroll mono" aria-hidden="true">SCROLL&nbsp;— 01 / AATHIRA&rsquo;S NOVA</div>
   <div class="hero-footer mono" aria-hidden="true">EXPERIMENTAL PREDATOR LINE &nbsp;•&nbsp; SHADOW BIOPLATE &nbsp;•&nbsp; NEURO VISOR &nbsp;•&nbsp; GENOME NOIR EXCLUSIVE</div>
+</section>
+
+<!-- ======================= HERO — AATHIRA'S NOVA (SECOND) ======================= -->
+<section class="hero hero-nova" id="nova" aria-label="Aathira's Nova — flagship companion">
+  <div class="hero-ghost" aria-hidden="true"><span>GENOME</span><span>NOIR</span></div>
+
+  <div class="hero-stage" id="heroStage">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <figure class="render-slot hero-render turntable" id="heroRender" data-render-slot="hero">
+      <img src="assets/turntable/nova-0.jpg" alt="Aathira's Nova — a luxurious photorealistic alpaca companion with pastel wool, a glowing pink sensory visor and a biotech collar, lit by magenta rim light on a black background" id="heroImgA" class="tt-frame is-front" loading="lazy" decoding="async" />
+      <img src="assets/turntable/nova-1.jpg" alt="" id="heroImgB" class="tt-frame" aria-hidden="true" loading="lazy" decoding="async" />
+      <div class="scanline" aria-hidden="true"></div>
+      <div class="render-vignette" aria-hidden="true"></div>
+    </figure>
+  </div>
+
+  <div class="hero-copy">
+    <p class="eyebrow mono">THE SYNTHETIC PET LAB — FLAGSHIP SPECIMEN</p>
+    <h2 class="hero-title">
+      <span class="ht-line">Meet <em class="painted">Aathira&rsquo;s&nbsp;Nova</em>,</span>
+      <span class="ht-line">create yours today</span>
+    </h2>
+    <p class="hero-sub">The first icon of Genome Noir. Enter the synthetic pet lab and invent a bio-companion entirely your own.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid magnetic" href="#species" data-navlink data-nova-link>MEET NOVA</a>
+      <a class="btn btn-line magnetic" href="#create" data-navlink>CREATE YOURS <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <aside class="hero-spec mono" aria-label="Specimen metadata">
+    <p>ID: #GN-0001</p>
+    <p>NAME: AATHIRA&rsquo;S_NOVA</p>
+    <p>WOOL: PASTEL_CLOUD [FLAGSHIP]</p>
+    <p>VISOR: NOVA_SENSORY_MK-II</p>
+    <p>CLASS: SENSORY-PRIME</p>
+  </aside>
+
+  <aside class="hero-tag mono" aria-hidden="true">
+    <p>DESIGN THE GENOME.</p>
+    <p>SHAPE THE SPECIES.</p>
+    <p>RAISE THE FUTURE.</p>
+  </aside>
+
+  <div class="hero-scroll mono" aria-hidden="true">SCROLL&nbsp;— 02 / SIGNATURE SPECIES</div>
+  <div class="hero-footer mono" aria-hidden="true">SYNTHETIC BIOLOGY ATELIER &nbsp;•&nbsp; SPECULATIVE ORGANISM DESIGN &nbsp;•&nbsp; COMPANION-GRADE LIFEFORMS &nbsp;•&nbsp; GENOME NOIR EXCLUSIVE</div>
 </section>
 
 <!-- ======================= SPECIES SHOWCASE ======================= -->
 <section class="showcase" id="species" aria-label="Signature species showcase">
-  <div class="show-ghost mono" aria-hidden="true" id="showGhost">NOVA</div>
+  <div class="show-ghost mono" aria-hidden="true" id="showGhost">VOID CLAW</div>
 
   <div class="show-grid">
     <div class="show-left">
       <p class="eyebrow mono">02 — SIGNATURE SPECIES</p>
-      <h2 class="painted show-name" id="showName">Nova</h2>
+      <h2 class="painted show-name" id="showName">Void Claw</h2>
       <div class="show-spec mono" id="showSpec"></div>
       <div class="show-thumbs" id="showThumbs" role="tablist" aria-label="Select a specimen"></div>
     </div>
@@ -150,25 +149,25 @@
     <div class="show-stage" id="showStage">
       <div class="show-glow" aria-hidden="true"></div>
       <figure class="render-slot show-render turntable" id="showRender" data-render-slot="showcase" aria-label="Specimen slowly rotating on a turntable">
-        <img src="assets/turntable/nova-0.jpg" alt="" id="showImgA" class="tt-frame is-front" loading="lazy" decoding="async" />
-        <img src="assets/turntable/nova-1.jpg" alt="" id="showImgB" class="tt-frame" loading="lazy" decoding="async" />
+        <img src="assets/turntable/void-claw-0.jpg" alt="" id="showImgA" class="tt-frame is-front" loading="lazy" decoding="async" />
+        <img src="assets/turntable/void-claw-1.jpg" alt="" id="showImgB" class="tt-frame" loading="lazy" decoding="async" />
         <div class="render-vignette" aria-hidden="true"></div>
       </figure>
     </div>
 
     <aside class="show-card panel" aria-live="polite">
       <div class="show-card-head">
-        <figure class="show-card-thumb render-slot"><img src="assets/nova.jpg" alt="" id="showCardImg" loading="lazy" decoding="async" /></figure>
+        <figure class="show-card-thumb render-slot"><img src="assets/void-claw.jpg" alt="" id="showCardImg" loading="lazy" decoding="async" /></figure>
         <div>
-          <h3 class="cond" id="showCardName">NOVA</h3>
+          <h3 class="cond" id="showCardName">VOID CLAW</h3>
           <p class="mono dim" id="showCardSub">THE SYNTHETIC PET LAB.</p>
         </div>
       </div>
       <p class="show-card-blurb" id="showCardBlurb"></p>
       <dl class="show-card-data mono" id="showCardData"></dl>
       <div class="stab-meter">
-        <div class="stab-head mono"><span>GENOME STABILITY</span><span id="showStabVal">94%</span></div>
-        <div class="meter"><div class="meter-fill" id="showStabFill" style="width:94%"></div></div>
+        <div class="stab-head mono"><span>GENOME STABILITY</span><span id="showStabVal">91%</span></div>
+        <div class="meter"><div class="meter-fill" id="showStabFill" style="width:91%"></div></div>
       </div>
       <a class="btn btn-solid btn-block magnetic" href="#lab" data-navlink id="showCardCta">OPEN IN GENOME LAB <span aria-hidden="true">↗</span></a>
     </aside>
@@ -187,8 +186,8 @@
       <h3 class="cond">EXPLORE SPECIES</h3>
       <p class="xcard-sub">Seven signature companions. One icon each.</p>
     </a>
-    <a class="xcard panel" href="#void-claw" data-navlink data-void-link data-depth="0.7" style="--x:38%; --y:2%; --w:340px">
-      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/void-claw.jpg" alt="Shrujal's Void Claw, a biotech-enhanced apex raptor with venom-green neuro-visor" /></figure>
+    <a class="xcard panel" href="#home" data-navlink data-void-link data-depth="0.7" style="--x:38%; --y:2%; --w:340px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/void-claw.jpg" alt="Shrujal's Void Claw, a biotech-enhanced apex raptor with cool futuristic purple neuro-visor" /></figure>
       <p class="mono dim">02 / APEX</p>
       <h3 class="cond">MEET VOID CLAW</h3>
       <p class="xcard-sub">Shrujal&rsquo;s stealth apex. Ultra-rare predator line.</p>
