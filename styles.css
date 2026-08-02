@@ -13,12 +13,12 @@
   --grey: #92929d;
   --line: rgba(247, 247, 243, 0.12);
 
-  /* specimen accent (defaults: Void Claw futuristic purple) */
-  --ac: #a855f7;
-  --ac2: #6d28d9;
-  --ac3: #e9d5ff;
-  --ac-dim: rgba(168, 85, 247, 0.14);
-  --ac-glow: rgba(168, 85, 247, 0.32);
+  /* specimen accent (defaults: Aathira's Nova) */
+  --ac: #ff2ea6;
+  --ac2: #8b5cf6;
+  --ac3: #46e6e6;
+  --ac-dim: rgba(255, 46, 166, 0.14);
+  --ac-glow: rgba(255, 46, 166, 0.32);
 
   --font-cond: "Anton", "Arial Narrow", sans-serif;
   --font-paint: "Permanent Marker", cursive;
@@ -293,6 +293,19 @@ figure { margin: 0; }
   border-top: 1px solid var(--line);
   font-size: 9.5px;
 }
+
+/* Shrujal's Void Claw — sibling hero with venom-green accent */
+.hero-void {
+  --ac: #86f000;
+  --ac2: #1f7a3d;
+  --ac3: #d8ffb0;
+  --ac-dim: rgba(134, 240, 0, 0.14);
+  --ac-glow: rgba(134, 240, 0, 0.32);
+}
+.hero-void .hero-title .painted {
+  font-size: clamp(26px, 7.2vw, 64px);
+}
+.hero-void .hero-spec p:nth-child(n + 6) { display: none; }
 
 /* ============================================================
    SPECIES SHOWCASE
@@ -872,12 +885,20 @@ figure { margin: 0; }
   .hero-copy { margin-top: clamp(-96px, -11svh, -44px); }
   .hero-title { font-size: clamp(36px, 11vw, 58px); letter-spacing: 0; }
   .hero-title .painted { white-space: nowrap; font-size: clamp(28px, 9.6vw, 54px); }
+  .hero-void .hero-title .painted {
+    white-space: normal;
+    font-size: clamp(24px, 8.4vw, 42px);
+    line-height: 1.05;
+  }
+  .hero-void .hero-ghost { padding-top: 10svh; }
+  .hero-void .hero-copy { margin-top: clamp(-72px, -8svh, -28px); }
   .hero-sub { font-size: 15.5px; margin: 16px auto 24px; }
   .hero-spec {
     position: static; text-align: center; line-height: 1.9;
     margin-top: 22px; order: 5;
   }
   .hero-spec p:nth-child(n + 3) { display: none; }
+  .hero-void .hero-spec p:nth-child(n + 4) { display: none; }
   .hero-tag { display: none; }
   .hero-scroll {
     position: static; transform: none; display: block;
