@@ -13,12 +13,12 @@
   --grey: #92929d;
   --line: rgba(247, 247, 243, 0.12);
 
-  /* specimen accent (defaults: Aathira's Nova) */
-  --ac: #ff2ea6;
-  --ac2: #8b5cf6;
-  --ac3: #46e6e6;
-  --ac-dim: rgba(255, 46, 166, 0.14);
-  --ac-glow: rgba(255, 46, 166, 0.32);
+  /* specimen accent (defaults: Shrujal's Void Claw purple) */
+  --ac: #a855f7;
+  --ac2: #6d28d9;
+  --ac3: #e9d5ff;
+  --ac-dim: rgba(168, 85, 247, 0.14);
+  --ac-glow: rgba(168, 85, 247, 0.32);
 
   --font-cond: "Anton", "Arial Narrow", sans-serif;
   --font-paint: "Permanent Marker", cursive;
@@ -294,18 +294,27 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* Shrujal's Void Claw — sibling hero with venom-green accent */
+/* Shrujal's Void Claw — landing hero with futuristic purple accent */
 .hero-void {
-  --ac: #86f000;
-  --ac2: #1f7a3d;
-  --ac3: #d8ffb0;
-  --ac-dim: rgba(134, 240, 0, 0.14);
-  --ac-glow: rgba(134, 240, 0, 0.32);
+  --ac: #a855f7;
+  --ac2: #6d28d9;
+  --ac3: #e9d5ff;
+  --ac-dim: rgba(168, 85, 247, 0.14);
+  --ac-glow: rgba(168, 85, 247, 0.32);
 }
 .hero-void .hero-title .painted {
   font-size: clamp(26px, 7.2vw, 64px);
 }
 .hero-void .hero-spec p:nth-child(n + 6) { display: none; }
+
+/* Aathira's Nova — second hero keeps pink accent */
+.hero-nova {
+  --ac: #ff2ea6;
+  --ac2: #8b5cf6;
+  --ac3: #46e6e6;
+  --ac-dim: rgba(255, 46, 166, 0.14);
+  --ac-glow: rgba(255, 46, 166, 0.32);
+}
 
 /* ============================================================
    SPECIES SHOWCASE
