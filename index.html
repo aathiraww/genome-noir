@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GENOME NOIR — The Synthetic Pet Lab</title>
+<meta name="description" content="Design the genome. Shape the species. Raise the future. Genome Noir is a speculative synthetic pet lab where you invent, incubate and adopt fashionable virtual organisms." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23020203'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23ff2ea6' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23ff2ea6'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Permanent+Marker&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-specimen="nova">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ======================= NAVIGATION ======================= -->
+<header class="site-nav" id="siteNav">
+  <a class="brand" href="#home" data-navlink>
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-word">GENOME<br/>NOIR.</span>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a href="#home" data-navlink>Home</a>
+    <a href="#species" data-navlink data-nova-link>Nova</a>
+    <a href="#species" data-navlink>Species</a>
+    <a href="#create" data-navlink>Create</a>
+    <a href="#lab" data-navlink>Genome Lab</a>
+    <a href="#incubate" id="navIncubate">Incubate</a>
+    <a href="#archive" data-navlink>Living Archive</a>
+    <a href="#habitats" data-navlink>Habitats</a>
+    <a href="#about" data-navlink>About</a>
+  </nav>
+  <div class="nav-right">
+    <span class="nav-meta mono" id="navMeta">SPECIMEN GN-0001 [●]</span>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================= HERO — AATHIRA'S NOVA ======================= -->
+<section class="hero" id="home" aria-label="Aathira's Nova — flagship companion">
+  <div class="hero-ghost" aria-hidden="true"><span>GENOME</span><span>NOIR</span></div>
+
+  <div class="hero-stage" id="heroStage">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <figure class="render-slot hero-render turntable" id="heroRender" data-render-slot="hero">
+      <!-- Prototype render slot: swap src for a commissioned/generated creature render -->
+      <img src="assets/turntable/nova-0.jpg" alt="Aathira's Nova — a luxurious photorealistic alpaca companion with pastel wool, a glowing pink sensory visor and a biotech collar, lit by magenta rim light on a black background" id="heroImgA" class="tt-frame is-front" fetchpriority="high" decoding="async" />
+      <img src="assets/turntable/nova-1.jpg" alt="" id="heroImgB" class="tt-frame" aria-hidden="true" decoding="async" />
+      <div class="scanline" aria-hidden="true"></div>
+      <div class="render-vignette" aria-hidden="true"></div>
+    </figure>
+  </div>
+
+  <div class="hero-copy">
+    <p class="eyebrow mono">THE SYNTHETIC PET LAB — FLAGSHIP SPECIMEN</p>
+    <h1 class="hero-title">
+      <span class="ht-line">Meet <em class="painted">Aathira&rsquo;s&nbsp;Nova</em>,</span>
+      <span class="ht-line">create yours today</span>
+    </h1>
+    <p class="hero-sub">The first icon of Genome Noir. Enter the synthetic pet lab and invent a bio-companion entirely your own.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid magnetic" href="#species" data-navlink data-nova-link>MEET NOVA</a>
+      <a class="btn btn-line magnetic" href="#create" data-navlink>CREATE YOURS <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <aside class="hero-spec mono" aria-label="Specimen metadata">
+    <p>ID: #GN-0001</p>
+    <p>NAME: AATHIRA&rsquo;S_NOVA</p>
+    <p>WOOL: PASTEL_CLOUD [FLAGSHIP]</p>
+    <p>VISOR: NOVA_SENSORY_MK-II</p>
+    <p>CLASS: SENSORY-PRIME</p>
+  </aside>
+
+  <aside class="hero-tag mono" aria-hidden="true">
+    <p>DESIGN THE GENOME.</p>
+    <p>SHAPE THE SPECIES.</p>
+    <p>RAISE THE FUTURE.</p>
+  </aside>
+
+  <div class="hero-scroll mono" aria-hidden="true">SCROLL&nbsp;— 01 / SPECIMEN GALLERY</div>
+  <div class="hero-footer mono" aria-hidden="true">SYNTHETIC BIOLOGY ATELIER &nbsp;•&nbsp; SPECULATIVE ORGANISM DESIGN &nbsp;•&nbsp; COMPANION-GRADE LIFEFORMS &nbsp;•&nbsp; GENOME NOIR EXCLUSIVE</div>
+</section>
+
+<!-- ======================= SPECIES SHOWCASE ======================= -->
+<section class="showcase" id="species" aria-label="Signature species showcase">
+  <div class="show-ghost mono" aria-hidden="true" id="showGhost">NOVA</div>
+
+  <div class="show-grid">
+    <div class="show-left">
+      <p class="eyebrow mono">02 — SIGNATURE SPECIES</p>
+      <h2 class="painted show-name" id="showName">Nova</h2>
+      <div class="show-spec mono" id="showSpec"></div>
+      <div class="show-thumbs" id="showThumbs" role="tablist" aria-label="Select a specimen"></div>
+    </div>
+
+    <div class="show-stage" id="showStage">
+      <div class="show-glow" aria-hidden="true"></div>
+      <figure class="render-slot show-render turntable" id="showRender" data-render-slot="showcase" aria-label="Specimen slowly rotating on a turntable">
+        <img src="assets/turntable/nova-0.jpg" alt="" id="showImgA" class="tt-frame is-front" loading="lazy" decoding="async" />
+        <img src="assets/turntable/nova-1.jpg" alt="" id="showImgB" class="tt-frame" loading="lazy" decoding="async" />
+        <div class="render-vignette" aria-hidden="true"></div>
+      </figure>
+    </div>
+
+    <aside class="show-card panel" aria-live="polite">
+      <div class="show-card-head">
+        <figure class="show-card-thumb render-slot"><img src="assets/nova.jpg" alt="" id="showCardImg" loading="lazy" decoding="async" /></figure>
+        <div>
+          <h3 class="cond" id="showCardName">NOVA</h3>
+          <p class="mono dim" id="showCardSub">THE SYNTHETIC PET LAB.</p>
+        </div>
+      </div>
+      <p class="show-card-blurb" id="showCardBlurb"></p>
+      <dl class="show-card-data mono" id="showCardData"></dl>
+      <div class="stab-meter">
+        <div class="stab-head mono"><span>GENOME STABILITY</span><span id="showStabVal">94%</span></div>
+        <div class="meter"><div class="meter-fill" id="showStabFill" style="width:94%"></div></div>
+      </div>
+      <a class="btn btn-solid btn-block magnetic" href="#lab" data-navlink id="showCardCta">OPEN IN GENOME LAB <span aria-hidden="true">↗</span></a>
+    </aside>
+  </div>
+
+  <div class="section-footer mono" aria-hidden="true">SYNTHETIC LINEAGE &nbsp;•&nbsp; VERIFIED PHENOTYPE &nbsp;•&nbsp; COMPANION GRADE &nbsp;•&nbsp; THE GENOME NOIR COLLECTION</div>
+</section>
+
+<!-- ======================= EXPLORE ======================= -->
+<section class="explore" id="explore" aria-label="Explore Genome Noir">
+  <div class="explore-ghost" aria-hidden="true">EXPLORE</div>
+  <div class="explore-canvas" id="exploreCanvas">
+    <a class="xcard panel" href="#species" data-navlink data-depth="0.35" style="--x:4%; --y:8%; --w:300px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/code-red.jpg" alt="Code Red, a thermal canid specimen in glossy red environmental armour" /></figure>
+      <p class="mono dim">01 / GALLERY</p>
+      <h3 class="cond">EXPLORE SPECIES</h3>
+      <p class="xcard-sub">Six signature companions. One icon each.</p>
+    </a>
+    <a class="xcard panel" href="#create" data-navlink data-depth="0.7" style="--x:38%; --y:2%; --w:340px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/nova.jpg" alt="Aathira's Nova wearing a glowing pink sensory visor" /></figure>
+      <p class="mono dim">02 / STUDIO</p>
+      <h3 class="cond">CREATE AN ORGANISM</h3>
+      <p class="xcard-sub">If you can imagine it, you can grow it.</p>
+    </a>
+    <a class="xcard panel" href="#lab" data-navlink data-depth="0.5" style="--x:72%; --y:12%; --w:300px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/acid-ghost.jpg" alt="Acid Ghost, a sentinel canid with bioluminescent green vein patterning" /></figure>
+      <p class="mono dim">03 / LAB</p>
+      <h3 class="cond">OPEN GENOME LAB</h3>
+      <p class="xcard-sub">Insert modules. Watch the phenotype answer.</p>
+    </a>
+    <a class="xcard panel" href="#habitats" data-navlink data-depth="0.85" style="--x:12%; --y:56%; --w:320px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/velvet-signal.jpg" alt="Velvet Signal, a winter feline in a pastel pink climate jacket and goggles" /></figure>
+      <p class="mono dim">04 / WORLDS</p>
+      <h3 class="cond">DESIGN HABITAT</h3>
+      <p class="xcard-sub">From arctic bio-pods to fungal gardens.</p>
+    </a>
+    <a class="xcard panel" href="#archive" data-navlink data-depth="0.45" style="--x:46%; --y:52%; --w:300px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/king-myco.jpg" alt="King Myco, a regal gold-collared fungal-symbiotic canid" /></figure>
+      <p class="mono dim">05 / DOSSIER</p>
+      <h3 class="cond">LIVING ARCHIVE</h3>
+      <p class="xcard-sub">Every organism you raise, kept on record.</p>
+    </a>
+    <a class="xcard panel" href="#about" data-navlink data-depth="0.65" style="--x:76%; --y:60%; --w:280px">
+      <figure class="xcard-img render-slot"><img loading="lazy" decoding="async" src="assets/pink-helix.jpg" alt="Pink Helix, a couture canid in a hot pink fur coat" /></figure>
+      <p class="mono dim">06 / SCIENCE</p>
+      <h3 class="cond">THE BIOTECHNOLOGY</h3>
+      <p class="xcard-sub">Fictional, educational, beautiful.</p>
+    </a>
+  </div>
+</section>
+
+<!-- ======================= CREATE ======================= -->
+<section class="create" id="create" aria-label="Create your organism">
+  <header class="section-head">
+    <p class="eyebrow mono">03 — ORGANISM STUDIO</p>
+    <h2 class="cond giant">CREATE<br/>YOUR ORGANISM</h2>
+    <p class="section-sub">If you can imagine it, you can grow it. Start from a signature species, splice a hybrid, or grow unknown life from a single sentence.</p>
+  </header>
+
+  <div class="create-modes" id="createModes" role="tablist" aria-label="Creation mode"></div>
+
+  <div class="describe panel">
+    <label class="mono dim" for="describeInput">Describe the life form you want to create.</label>
+    <textarea id="describeInput" rows="3" placeholder="A nocturnal sheep-moth companion with glowing wool, ultraviolet sensing, transparent wing structures and a couture biosensor visor."></textarea>
+    <div class="describe-actions">
+      <button class="btn btn-line magnetic" id="interpretBtn" type="button">INTERPRET DESCRIPTION</button>
+      <p class="mono dim" id="interpretNote" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="create-grid">
+    <div class="create-controls" id="createControls"></div>
+
+    <div class="create-preview">
+      <div class="preview-sticky">
+        <div class="show-glow small" aria-hidden="true"></div>
+        <figure class="render-slot preview-render" id="previewRender" data-render-slot="preview">
+          <img src="assets/nova.jpg" alt="Live preview of your organism, based on the selected photorealistic base creature" id="previewImg" />
+          <div class="grade-overlay" id="gradeOverlay" aria-hidden="true"></div>
+          <div class="render-vignette" aria-hidden="true"></div>
+          <ul class="trait-tags mono" id="traitTags" aria-label="Recorded traits"></ul>
+        </figure>
+        <div class="preview-meta mono" id="previewMeta"></div>
+        <div class="preview-actions">
+          <a class="btn btn-solid btn-block magnetic" href="#lab" data-navlink>REFINE IN GENOME LAB <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GENOME LAB ======================= -->
+<section class="lab" id="lab" aria-label="Genome Lab">
+  <header class="section-head">
+    <p class="eyebrow mono">04 — GENOME LAB</p>
+    <h2 class="cond giant">GENOME LAB</h2>
+    <p class="section-sub">Insert conceptual modules and watch stability, energy and rarity respond. All biotechnology here is fictional and educational — creative freedom comes first.</p>
+  </header>
+
+  <div class="lab-grid">
+    <div class="lab-left">
+      <h3 class="mono dim lab-col-title">MODULES</h3>
+      <div id="labModules"></div>
+      <h3 class="mono dim lab-col-title">CONSOLE</h3>
+      <div class="lab-log mono panel" id="labLog" aria-live="polite"></div>
+    </div>
+
+    <div class="lab-stage">
+      <div class="show-glow" aria-hidden="true"></div>
+      <figure class="render-slot lab-render" id="labRender" data-render-slot="lab">
+        <img src="assets/nova.jpg" alt="" id="labImg" />
+        <div class="scanline" aria-hidden="true"></div>
+        <div class="render-vignette" aria-hidden="true"></div>
+      </figure>
+      <p class="mono dim lab-stage-meta" id="labStageMeta"></p>
+      <button class="btn btn-solid magnetic" id="labIncubateBtn" type="button">BEGIN INCUBATION <span aria-hidden="true">↗</span></button>
+    </div>
+
+    <div class="lab-right">
+      <h3 class="mono dim lab-col-title">READOUT</h3>
+      <div id="labStats"></div>
+      <div class="lab-notes panel mono" id="labNotes" aria-live="polite"></div>
+    </div>
+
+    <div class="lab-cta-mobile" id="labCtaMobile" hidden></div>
+  </div>
+</section>
+
+<!-- ======================= HABITATS ======================= -->
+<section class="habitats" id="habitats" aria-label="Habitat design">
+  <header class="section-head">
+    <p class="eyebrow mono">05 — WORLDS</p>
+    <h2 class="cond giant">HABITAT DESIGN</h2>
+    <p class="section-sub">Choose a world, tune its atmosphere, and see how well your organism would live there.</p>
+  </header>
+  <div class="hab-grid">
+    <div class="hab-list" id="habList" role="tablist" aria-label="Select a habitat"></div>
+    <div class="hab-panel panel">
+      <h3 class="cond" id="habName">NOCTURNAL BOTANICAL DOME</h3>
+      <p class="mono dim" id="habDesc"></p>
+      <div class="hab-sliders" id="habSliders"></div>
+      <div class="hab-compat">
+        <div class="stab-head mono"><span>ORGANISM COMPATIBILITY</span><span id="habCompatVal">—</span></div>
+        <div class="meter"><div class="meter-fill" id="habCompatFill"></div></div>
+        <p class="mono dim" id="habCompatNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LIVING ARCHIVE ======================= -->
+<section class="archive" id="archive" aria-label="Living Archive">
+  <header class="section-head">
+    <p class="eyebrow mono">06 — DOSSIER</p>
+    <h2 class="cond giant">LIVING ARCHIVE</h2>
+    <p class="section-sub">Every organism you incubate and adopt is kept here, on this device. Rename them, duplicate their genome, or keep caring for them.</p>
+  </header>
+  <div class="archive-grid" id="archiveGrid"></div>
+  <div class="archive-empty panel" id="archiveEmpty">
+    <p class="mono dim">ARCHIVE EMPTY — NO LIFE SIGNS ON RECORD</p>
+    <p>You haven&rsquo;t raised an organism yet.</p>
+    <a class="btn btn-solid magnetic" href="#create" data-navlink>CREATE YOUR FIRST ORGANISM <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section class="about" id="about" aria-label="About Genome Noir">
+  <div class="about-inner">
+    <p class="eyebrow mono">07 — THE LAB</p>
+    <h2 class="cond giant">DESIGN THE GENOME.<br/>SHAPE THE SPECIES.<br/>RAISE THE FUTURE.</h2>
+    <div class="about-cols">
+      <p>Genome Noir is a speculative synthetic pet lab — a fashion house for imaginary biology. Nothing here edits real genomes; every module, pathway and readout is a fiction built to make you think like a species designer.</p>
+      <p>You are not customising a pet. You are inventing a species: its senses, its surface, its microbiome, its wardrobe, its world. And then you raise it.</p>
+    </div>
+    <div class="about-rules mono">
+      <p>NO REAL GENE SEQUENCES &nbsp;•&nbsp; NO LABORATORY PROTOCOLS &nbsp;•&nbsp; NO OPERATIONAL BIOLOGY</p>
+      <p>SPECULATIVE &nbsp;•&nbsp; EDUCATIONAL &nbsp;•&nbsp; COMPANION-GRADE FICTION</p>
+    </div>
+  </div>
+  <footer class="site-footer mono">
+    <span>GENOME NOIR — THE SYNTHETIC PET LAB</span>
+    <span>PROTOTYPE ASSETS — REPLACEABLE RENDER SLOTS</span>
+    <span id="footYear"></span>
+  </footer>
+</section>
+
+</main>
+
+<!-- ======================= INCUBATION OVERLAY ======================= -->
+<div class="incubator" id="incubator" role="dialog" aria-modal="true" aria-label="Incubation chamber" hidden>
+  <div class="inc-chamber">
+    <div class="inc-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+    <figure class="render-slot inc-render" id="incRender">
+      <img src="assets/nova.jpg" alt="Your organism forming inside the incubation chamber" id="incImg" />
+      <div class="scanline strong" aria-hidden="true"></div>
+      <div class="render-vignette" aria-hidden="true"></div>
+    </figure>
+    <svg class="inc-ekg" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true">
+      <path id="ekgPath" d="M0,40 L90,40 L110,40 L122,12 L134,68 L146,34 L160,40 L300,40 L320,40 L332,12 L344,68 L356,34 L370,40 L510,40 L530,40 L542,12 L554,68 L566,34 L580,40 L600,40" />
+    </svg>
+  </div>
+  <div class="inc-side">
+    <p class="mono dim" id="incStageNo">STAGE 1 / 7</p>
+    <h2 class="cond" id="incStageName">GENOME VALIDATION</h2>
+    <p class="mono inc-msg" id="incMsg" aria-live="assertive"></p>
+    <div class="meter"><div class="meter-fill" id="incFill"></div></div>
+    <ol class="inc-stages mono" id="incStages"></ol>
+    <button class="btn btn-line mono" id="incSkip" type="button">SKIP SEQUENCE</button>
+  </div>
+</div>
+
+<!-- ======================= NAMING / ADOPTION OVERLAY ======================= -->
+<div class="adopt" id="adopt" role="dialog" aria-modal="true" aria-label="Name and adopt your organism" hidden>
+  <div class="adopt-inner panel">
+    <p class="mono dim">LIFE SIGN CONFIRMED</p>
+    <h2 class="painted adopt-title">It needs a name.</h2>
+    <div class="adopt-grid">
+      <figure class="render-slot adopt-render"><img src="assets/nova.jpg" alt="Your newly incubated organism" id="adoptImg" /><div class="render-vignette" aria-hidden="true"></div></figure>
+      <form class="adopt-form" id="adoptForm">
+        <label class="mono dim" for="petName">PET NAME</label>
+        <div class="adopt-name-row">
+          <input id="petName" name="petName" type="text" maxlength="28" placeholder="Name your organism" required autocomplete="off" />
+        </div>
+        <div class="adopt-gen mono">
+          <button type="button" data-gen="pet">GENERATE NAME</button>
+          <button type="button" data-gen="code">CODENAME</button>
+          <button type="button" data-gen="sci">SCIENTIFIC NAME</button>
+        </div>
+        <p class="mono dim adopt-sci" id="adoptSci"></p>
+        <div class="adopt-row">
+          <div>
+            <label class="mono dim" for="petTitle">TITLE</label>
+            <select id="petTitle"></select>
+          </div>
+          <div>
+            <label class="mono dim" for="petHabitat">HABITAT</label>
+            <select id="petHabitat"></select>
+          </div>
+        </div>
+        <label class="mono dim" for="originStory">ORIGIN STORY</label>
+        <textarea id="originStory" rows="3" placeholder="Where did this life begin?"></textarea>
+        <button type="button" class="mono adopt-gen-story" id="genStory">GENERATE ORIGIN STORY</button>
+        <div class="adopt-actions">
+          <button class="btn btn-solid magnetic" type="submit">CONFIRM ADOPTION <span aria-hidden="true">↗</span></button>
+          <button class="btn btn-line" type="button" id="adoptCancel">RETURN TO LAB</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= IDENTITY CARD OVERLAY ======================= -->
+<div class="idcard-wrap" id="idcardWrap" role="dialog" aria-modal="true" aria-label="Specimen identity card" hidden>
+  <div class="idcard panel" id="idcard"></div>
+  <div class="idcard-actions">
+    <button class="btn btn-line mono" id="idcardExport" type="button">EXPORT DOSSIER</button>
+    <button class="btn btn-solid mono" id="idcardClose" type="button">CLOSE</button>
+  </div>
+</div>
+
+<!-- ======================= PET CARE OVERLAY ======================= -->
+<div class="care" id="care" role="dialog" aria-modal="true" aria-label="Companion care" hidden>
+  <div class="care-inner panel">
+    <button class="care-close mono" id="careClose" type="button" aria-label="Close care panel">✕ CLOSE</button>
+    <div class="care-grid">
+      <div class="care-stage">
+        <div class="show-glow small" aria-hidden="true"></div>
+        <figure class="render-slot care-render" id="careRender"><img src="assets/nova.jpg" alt="" id="careImg" /><div class="render-vignette" aria-hidden="true"></div></figure>
+        <h3 class="painted care-name" id="careName">Nova</h3>
+        <p class="mono dim" id="careMood" aria-live="polite"></p>
+      </div>
+      <div class="care-panel">
+        <div id="careMeters"></div>
+        <div class="care-actions" id="careActions"></div>
+        <p class="mono dim care-note" id="careNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast mono" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
