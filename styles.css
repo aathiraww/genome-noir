@@ -314,7 +314,7 @@ figure { margin: 0; }
   font-size: 12px;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--ac);
+  color: var(--ink);
   text-shadow: none;
   line-height: 1;
 }
