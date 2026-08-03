@@ -13,7 +13,7 @@
   --grey: #92929d;
   --line: rgba(247, 247, 243, 0.12);
 
-  /* specimen accent (defaults: Shrujal's Void Claw purple) */
+  /* specimen accent (defaults: Sky Titan's Void Claw purple) */
   --ac: #a855f7;
   --ac2: #6d28d9;
   --ac3: #e9d5ff;
@@ -294,7 +294,7 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* Shrujal's Void Claw — landing hero with futuristic purple accent */
+/* Sky Titan's Void Claw — landing hero with futuristic purple accent */
 .hero-void {
   --ac: #a855f7;
   --ac2: #6d28d9;
