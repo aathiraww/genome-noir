@@ -37,9 +37,9 @@ const SPECIES = {
     blurb: "The first icon of Genome Noir. Nova reads ultraviolet weather through her visor, hums when curious, and treats every stranger as a future friend.",
   },
   "void-claw": {
-    id: "void-claw", name: "Shrujal\u2019s Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
+    id: "void-claw", name: "Sky Titan\u2019s Void Claw", painted: "Void Claw", ghost: "VOID CLAW",
     img: "assets/void-claw.jpg",
-    alt: "Shrujal's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, cool futuristic purple neuro-visor and glossy shadow-bioplate fashion",
+    alt: "Sky Titan's Void Claw — a photorealistic biotech-enhanced apex velociraptor with charcoal void-scale skin, black quill crest, cool futuristic purple neuro-visor and glossy shadow-bioplate fashion",
     ac: "#a855f7", ac2: "#6d28d9", ac3: "#e9d5ff",
     specimen: "GN-0092",
     base: "APEX RAPTOR",
