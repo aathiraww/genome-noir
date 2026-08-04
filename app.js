@@ -140,7 +140,7 @@ const SPECIES = {
     blurb: "Its veins glow brighter near pollutants — a walking water-quality report. Acid Ghost patrols at night and sleeps wherever the moss is thickest.",
   },
 };
-const SPECIES_ORDER = ["void-claw", "nova", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
+const SPECIES_ORDER = ["nova", "void-claw", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
 const TURNTABLE_FRAMES = 8;
 function turntableSrc(id, i) {
   return `assets/turntable/${id}-${((i % TURNTABLE_FRAMES) + TURNTABLE_FRAMES) % TURNTABLE_FRAMES}.jpg`;
@@ -262,7 +262,7 @@ const ENV_LABELS = { temperature: "TEMPERATURE", humidity: "HUMIDITY", light: "L
    GLOBAL STATE
    ============================================================ */
 const state = {
-  specimen: "void-claw",
+  specimen: "nova",
   draft: null,
   mode: "species",
   habitat: "dome",
@@ -271,16 +271,16 @@ const state = {
   carePet: null,
 };
 
-function freshDraft(base = "void-claw") {
+function freshDraft(base = "nova") {
   return {
     base, hybridWith: null, description: "",
-    form: "reptilian", surface: "scales",
-    appendages: ["legs"], sensory: ["infrared sensing"], adaptations: ["camouflage"],
-    microbiome: [], behaviour: ["nocturnal", "independent"], fashion: ["neon sensory visor"],
+    form: "mammalian", surface: "wool",
+    appendages: ["legs"], sensory: ["uv vision"], adaptations: [],
+    microbiome: [], behaviour: ["curious", "calm"], fashion: ["neon sensory visor"],
     modules: [],
   };
 }
-state.draft = freshDraft("void-claw");
+state.draft = freshDraft("nova");
 
 /* ============================================================
    THEME ENGINE
@@ -494,7 +494,7 @@ const showcaseTurntable = ($("#showImgA") && $("#showImgB")) ? createTurntable({
   a: $("#showImgA"),
   b: $("#showImgB"),
   periodMs: 16000,
-  initialSpecies: "void-claw",
+  initialSpecies: "nova",
 }) : null;
 const heroTurntable = ($("#heroImgA") && $("#heroImgB")) ? createTurntable({
   a: $("#heroImgA"),
