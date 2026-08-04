@@ -1393,13 +1393,30 @@ $("#careClose").addEventListener("click", () => {
    NAVIGATION
    ============================================================ */
 const burger = $("#navBurger");
-function closeMenu() {
+const navLinksEl = $("#navLinks");
+let navOpenerEl = null;
+
+function getFocusable(container) {
+  return $$('a[href], button:not([disabled])', container).filter(
+    (el) => el.offsetParent !== null || el === document.activeElement
+  );
+}
+
+function closeMenu({ restoreFocus = false } = {}) {
+  const wasOpen = document.body.classList.contains("nav-open");
   document.body.classList.remove("nav-open");
   burger.setAttribute("aria-expanded", "false");
+  if (wasOpen && restoreFocus && navOpenerEl) navOpenerEl.focus();
+  navOpenerEl = null;
 }
 burger.addEventListener("click", () => {
   const open = document.body.classList.toggle("nav-open");
   burger.setAttribute("aria-expanded", String(open));
+  if (open) {
+    navOpenerEl = burger;
+    const first = getFocusable(navLinksEl)[0];
+    if (first) first.focus();
+  }
 });
 $$("[data-navlink]").forEach((a) => {
   a.addEventListener("click", () => {
@@ -1409,6 +1426,22 @@ $$("[data-navlink]").forEach((a) => {
   });
 });
 
+/* Trap Tab focus inside the mobile nav while it's open */
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Tab" || !document.body.classList.contains("nav-open")) return;
+  const focusable = [burger, ...getFocusable(navLinksEl)];
+  if (!focusable.length) return;
+  const currentIndex = focusable.indexOf(document.activeElement);
+  let nextIndex;
+  if (e.shiftKey) {
+    nextIndex = currentIndex <= 0 ? focusable.length - 1 : currentIndex - 1;
+  } else {
+    nextIndex = currentIndex === -1 || currentIndex === focusable.length - 1 ? 0 : currentIndex + 1;
+  }
+  e.preventDefault();
+  focusable[nextIndex].focus();
+});
+
 /* Escape closes overlays */
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
@@ -1416,7 +1449,7 @@ document.addEventListener("keydown", (e) => {
   else if (!$("#care").hidden) $("#careClose").click();
   else if (!$("#adopt").hidden) $("#adoptCancel").click();
   else if (!$("#incubator").hidden) $("#incSkip").click();
-  else if (document.body.classList.contains("nav-open")) closeMenu();
+  else if (document.body.classList.contains("nav-open")) closeMenu({ restoreFocus: true });
 });
 
 /* ============================================================
