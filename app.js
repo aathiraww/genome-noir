@@ -19,6 +19,24 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
    SPECIES DATA — prototype render slots
    ============================================================ */
 const SPECIES = {
+  kylaq: {
+    id: "kylaq", name: "Aathira\u2019s Kylaq", painted: "Kylaq", ghost: "KYLAQ",
+    img: "assets/kylaq.jpg",
+    alt: "Aathira's Kylaq — a photorealistic bio-engineered black wolf with a glowing red-yellow HUD visor and high-gloss yellow-red glazed coat",
+    ac: "#ff2a2a", ac2: "#ffcc00", ac3: "#ff6a00",
+    specimen: "GN-0101",
+    base: "NOCTURNAL WOLF",
+    inspiration: "WOLF \u00D7 SHADOW SENTINEL",
+    origin: "SHADOW_SENTINEL_LINE",
+    surface: "OBSIDIAN_FUR",
+    fashion: "EMBER_HUD_VISOR + YELLOW_RED_GLAZED_COAT",
+    habitat: "Nocturnal forest zone",
+    temperament: "FIERCE / LOYAL / DOMINANT",
+    adaptClass: "NOCTURNAL_WOLF",
+    stability: 93, rarity: "ULTRA RARE",
+    status: "ACTIVE SPECIMEN",
+    blurb: "A bio-engineered nocturnal wolf built for silent dominance, heightened sensory precision and elite shadow pursuit. The primal sentinel of the Genome Noir collection.",
+  },
   nova: {
     id: "nova", name: "Aathira\u2019s Nova", painted: "Nova", ghost: "NOVA",
     img: "assets/nova.jpg",
@@ -140,7 +158,7 @@ const SPECIES = {
     blurb: "Its veins glow brighter near pollutants — a walking water-quality report. Acid Ghost patrols at night and sleeps wherever the moss is thickest.",
   },
 };
-const SPECIES_ORDER = ["nova", "void-claw", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
+const SPECIES_ORDER = ["kylaq", "nova", "void-claw", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
 const TURNTABLE_FRAMES = 8;
 function turntableSrc(id, i) {
   return `assets/turntable/${id}-${((i % TURNTABLE_FRAMES) + TURNTABLE_FRAMES) % TURNTABLE_FRAMES}.jpg`;
@@ -262,7 +280,7 @@ const ENV_LABELS = { temperature: "TEMPERATURE", humidity: "HUMIDITY", light: "L
    GLOBAL STATE
    ============================================================ */
 const state = {
-  specimen: "nova",
+  specimen: "kylaq",
   draft: null,
   mode: "species",
   habitat: "dome",
@@ -271,16 +289,18 @@ const state = {
   carePet: null,
 };
 
-function freshDraft(base = "nova") {
+function freshDraft(base = "kylaq") {
+  const wolf = base === "kylaq";
   return {
     base, hybridWith: null, description: "",
-    form: "mammalian", surface: "wool",
-    appendages: ["legs"], sensory: ["uv vision"], adaptations: [],
-    microbiome: [], behaviour: ["curious", "calm"], fashion: ["neon sensory visor"],
+    form: "mammalian", surface: wolf ? "fur" : "wool",
+    appendages: ["legs"], sensory: wolf ? ["infrared sensing"] : ["uv vision"], adaptations: [],
+    microbiome: [], behaviour: wolf ? ["nocturnal", "curious"] : ["curious", "calm"],
+    fashion: ["neon sensory visor"],
     modules: [],
   };
 }
-state.draft = freshDraft("nova");
+state.draft = freshDraft("kylaq");
 
 /* ============================================================
    THEME ENGINE
@@ -410,14 +430,14 @@ function habitatCompat(draft, env) {
    HERO FLOAT — gentle presence (turntable handles the 360°)
    ============================================================ */
 (function heroMotion() {
-  const renders = [$("#heroRender"), $("#voidHeroRender")].filter(Boolean);
+  const renders = [$("#heroRender"), $("#novaHeroRender")].filter(Boolean);
   if (!renders.length) return;
   function frame(t) {
     for (const render of renders) {
       if (reduceMotion.matches) { render.style.transform = ""; continue; }
-      const phase = render.id === "voidHeroRender" ? 0.7 : 0;
+      const phase = render.id === "novaHeroRender" ? 0.7 : 0;
       const float = Math.sin(t * 0.00055 + phase) * 6;
-      const tilt = Math.sin(t * 0.00035 + phase) * (render.id === "voidHeroRender" ? 1.2 : 0.8);
+      const tilt = Math.sin(t * 0.00035 + phase) * (render.id === "novaHeroRender" ? 1.0 : 0.8);
       const breathe = 1 + Math.sin(t * 0.001 + phase) * 0.006;
       render.style.transform = `translateY(${float.toFixed(2)}px) rotateZ(${tilt.toFixed(2)}deg) scale(${breathe.toFixed(4)})`;
     }
@@ -494,19 +514,19 @@ const showcaseTurntable = ($("#showImgA") && $("#showImgB")) ? createTurntable({
   a: $("#showImgA"),
   b: $("#showImgB"),
   periodMs: 16000,
-  initialSpecies: "nova",
+  initialSpecies: "kylaq",
 }) : null;
 const heroTurntable = ($("#heroImgA") && $("#heroImgB")) ? createTurntable({
   a: $("#heroImgA"),
   b: $("#heroImgB"),
   periodMs: 18000,
-  initialSpecies: "nova",
+  initialSpecies: "kylaq",
 }) : null;
-const voidHeroTurntable = ($("#voidHeroImgA") && $("#voidHeroImgB")) ? createTurntable({
-  a: $("#voidHeroImgA"),
-  b: $("#voidHeroImgB"),
+const novaHeroTurntable = ($("#novaHeroImgA") && $("#novaHeroImgB")) ? createTurntable({
+  a: $("#novaHeroImgA"),
+  b: $("#novaHeroImgB"),
   periodMs: 18000,
-  initialSpecies: "void-claw",
+  initialSpecies: "nova",
 }) : null;
 SPECIES_ORDER.forEach(preloadTurntable);
 
@@ -515,7 +535,7 @@ SPECIES_ORDER.forEach(preloadTurntable);
   if (!("IntersectionObserver" in window)) return;
   const map = new Map([
     [$("#heroRender"), heroTurntable],
-    [$("#voidHeroRender"), voidHeroTurntable],
+    [$("#novaHeroRender"), novaHeroTurntable],
     [$("#showRender"), showcaseTurntable],
   ]);
   const io = new IntersectionObserver((entries) => {
@@ -790,7 +810,8 @@ const KEYWORDS = [
   [/visor|eyewear|goggles/i, (d) => add(d, "fashion", "neon sensory visor")],
   [/nocturnal|night/i, (d) => add(d, "behaviour", "nocturnal")],
   [/cat|feline/i, (d) => { d.base = "velvet-signal"; }],
-  [/dog|canid|wolf|hound/i, (d) => { d.base = "code-red"; }],
+  [/kylaq|nocturnal\s*wolf|shadow\s*sentinel|\bwolf\b/i, (d) => { d.base = "kylaq"; d.form = "mammalian"; d.surface = "fur"; add(d, "sensory", "infrared sensing"); add(d, "behaviour", "nocturnal"); }],
+  [/dog|canid|hound|doberman/i, (d) => { if (d.base !== "kylaq") d.base = "code-red"; }],
   [/deep[- ]?sea|ocean|jelly|octopus|shark|fish|coral/i, (d) => { d.form = "aquatic"; add(d, "adaptations", "pressure tolerance"); add(d, "appendages", "fins"); }],
   [/tentacle/i, (d) => add(d, "appendages", "tentacles")],
   [/fungus|fungal|mushroom|mycelium|spore/i, (d) => { d.form = "fungal"; d.base = "king-myco"; }],
@@ -805,7 +826,7 @@ const KEYWORDS = [
   [/reptile|lizard|snake|scale/i, (d) => { d.form = "reptilian"; d.surface = "scales"; }],
   [/raptor|velociraptor|dinosaur|dino|void\s*claw/i, (d) => { d.base = "void-claw"; d.form = "reptilian"; d.surface = "scales"; add(d, "adaptations", "camouflage"); add(d, "sensory", "infrared sensing"); }],
   [/axolotl|amphibian|frog|newt/i, (d) => { d.form = "amphibian"; add(d, "adaptations", "rapid regeneration"); }],
-  [/pink/i, (d) => { if (d.base !== "nova") d.base = "pink-helix"; }],
+  [/pink/i, (d) => { if (d.base !== "nova" && d.base !== "kylaq") d.base = "pink-helix"; }],
   [/collar/i, (d) => add(d, "fashion", "genomic collar")],
   [/halo/i, (d) => add(d, "fashion", "diagnostic halo")],
 ];
@@ -1421,8 +1442,8 @@ burger.addEventListener("click", () => {
 $$("[data-navlink]").forEach((a) => {
   a.addEventListener("click", () => {
     closeMenu();
+    if (a.hasAttribute("data-kylaq-link")) selectSpecimen("kylaq");
     if (a.hasAttribute("data-nova-link")) selectSpecimen("nova");
-    if (a.hasAttribute("data-void-link")) selectSpecimen("void-claw");
   });
 });
 

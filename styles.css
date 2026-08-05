@@ -13,12 +13,12 @@
   --grey: #92929d;
   --line: rgba(247, 247, 243, 0.12);
 
-  /* specimen accent (defaults: Aathira's Nova) */
-  --ac: #ff2ea6;
-  --ac2: #8b5cf6;
-  --ac3: #46e6e6;
-  --ac-dim: rgba(255, 46, 166, 0.14);
-  --ac-glow: rgba(255, 46, 166, 0.32);
+  /* specimen accent (defaults: Aathira's Kylaq) */
+  --ac: #ff2a2a;
+  --ac2: #ffcc00;
+  --ac3: #ff6a00;
+  --ac-dim: rgba(255, 42, 42, 0.14);
+  --ac-glow: rgba(255, 106, 0, 0.34);
 
   --font-cond: "Anton", "Arial Narrow", sans-serif;
   --font-paint: "Permanent Marker", cursive;
@@ -294,43 +294,16 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* Sky Titan's Void Claw — second hero with futuristic purple accent */
-.hero-void {
-  --ac: #a855f7;
-  --ac2: #6d28d9;
-  --ac3: #e9d5ff;
-  --ac-dim: rgba(168, 85, 247, 0.14);
-  --ac-glow: rgba(168, 85, 247, 0.32);
+/* Aathira's Kylaq — first hero, yellow-red accent */
+.hero-kylaq {
+  --ac: #ff2a2a;
+  --ac2: #ffcc00;
+  --ac3: #ff6a00;
+  --ac-dim: rgba(255, 42, 42, 0.14);
+  --ac-glow: rgba(255, 106, 0, 0.34);
 }
-.hero-void .hero-title-void {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  font-family: inherit;
-  text-transform: none;
-}
-.hero-void .ht-meet {
-  font-size: 12px;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-shadow: none;
-  line-height: 1;
-}
-.hero-void .ht-name {
-  display: block;
-  font-size: clamp(34px, 7.6vw, 78px);
-  line-height: 0.96;
-  letter-spacing: 0.01em;
-  transform: rotate(-1.4deg);
-  text-shadow: 0 0 34px var(--ac-glow), 0 2px 0 rgba(0,0,0,0.55);
-  max-width: 16ch;
-  text-wrap: balance;
-}
-.hero-void .hero-spec p:nth-child(n + 6) { display: none; }
 
-/* Aathira's Nova — first hero keeps pink accent */
+/* Aathira's Nova — second hero keeps pink accent */
 .hero-nova {
   --ac: #ff2ea6;
   --ac2: #8b5cf6;
@@ -917,22 +890,13 @@ figure { margin: 0; }
   .hero-copy { margin-top: clamp(-96px, -11svh, -44px); }
   .hero-title { font-size: clamp(36px, 11vw, 58px); letter-spacing: 0; }
   .hero-title .painted { white-space: nowrap; font-size: clamp(28px, 9.6vw, 54px); }
-  .hero-void .ht-meet { font-size: 11px; letter-spacing: 0.3em; }
-  .hero-void .ht-name {
-    white-space: normal;
-    font-size: clamp(30px, 9.2vw, 48px);
-    line-height: 1.02;
-    max-width: 12ch;
-  }
-  .hero-void .hero-ghost { padding-top: 10svh; }
-  .hero-void .hero-copy { margin-top: clamp(-72px, -8svh, -28px); }
+  .hero-kylaq .hero-title .painted { font-size: clamp(26px, 9vw, 50px); }
   .hero-sub { font-size: 15.5px; margin: 16px auto 24px; }
   .hero-spec {
     position: static; text-align: center; line-height: 1.9;
     margin-top: 22px; order: 5;
   }
   .hero-spec p:nth-child(n + 3) { display: none; }
-  .hero-void .hero-spec p:nth-child(n + 4) { display: none; }
   .hero-tag { display: none; }
   .hero-scroll {
     position: static; transform: none; display: block;
