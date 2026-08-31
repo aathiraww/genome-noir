@@ -335,114 +335,124 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* Aathira's Code Red — landing hero, crimson atmospheric field */
+/* Aathira's Code Red — landing hero matching approved mock */
 .hero-code-red {
   --ac: #ff2222;
   --ac2: #ff6a00;
   --ac3: #ff9d9d;
   --ac-dim: rgba(255, 34, 34, 0.18);
-  --ac-glow: rgba(255, 48, 32, 0.42);
+  --ac-glow: rgba(255, 48, 32, 0.45);
   background:
-    radial-gradient(58% 50% at 50% 40%, rgba(255, 55, 40, 0.42), transparent 72%),
-    radial-gradient(95% 80% at 50% 100%, rgba(70, 0, 0, 0.75), transparent 58%),
-    linear-gradient(180deg, #1c0202 0%, #6e0a0a 36%, #b41212 70%, #3a0505 100%);
+    radial-gradient(55% 48% at 50% 42%, rgba(180, 20, 20, 0.35), transparent 70%),
+    linear-gradient(180deg, rgba(5,1,1,0.35) 0%, rgba(5,1,1,0.15) 40%, rgba(5,1,1,0.55) 100%),
+    url("assets/code-red-bleed.jpg") center/cover no-repeat,
+    #1a0202;
 }
 .hero-code-red::before {
-  background:
-    radial-gradient(46% 38% at 50% 36%, rgba(255, 70, 40, 0.28), transparent 72%);
+  background: radial-gradient(42% 34% at 50% 38%, rgba(255, 60, 40, 0.22), transparent 70%);
   opacity: 1;
 }
-.hero-code-red .hero-ghost span {
-  -webkit-text-stroke-color: rgba(255, 210, 190, 0.16);
+.hero-code-red .hero-ghost { display: none; }
+.hero-code-red .hero-stage {
+  background: transparent;
+  inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  aspect-ratio: auto;
+  max-width: none;
 }
-.hero-code-red .hero-ghost span:first-child {
-  color: rgba(255, 220, 200, 0.07);
-}
-.hero-code-red .hero-title .painted {
-  text-shadow: 0 0 28px rgba(255, 40, 30, 0.55), 0 2px 0 rgba(0, 0, 0, 0.35);
-}
-.hero-code-red .hero-spec,
-.hero-code-red .hero-tag,
-.hero-code-red .hero-scroll {
-  color: rgba(255, 170, 150, 0.92);
-}
-.hero-code-red .hero-spec p:first-child { color: #fff; }
-.hero-code-red .hero-footer {
-  border-top-color: rgba(255, 180, 160, 0.2);
-  color: rgba(255, 170, 150, 0.85);
-  background: linear-gradient(180deg, transparent, rgba(40, 0, 0, 0.4));
-}
-.hero-code-red .hero-stage { background: transparent; }
 .hero-code-red .hero-render {
   -webkit-mask-image: none;
           mask-image: none;
 }
-.hero-code-red .hero-render > .render-vignette {
-  background:
-    radial-gradient(120% 105% at 50% 42%, transparent 58%, rgba(90, 0, 0, 0.45) 100%),
-    linear-gradient(180deg, rgba(60, 0, 0, 0.15) 0%, transparent 24%, transparent 62%, rgba(50, 0, 0, 0.55) 100%);
+.hero-code-red .hero-render > .render-vignette,
+.hero-code-red .scanline { display: none; }
+.hero-code-red .tt-frame {
+  object-fit: cover;
+  object-position: center center;
+  mix-blend-mode: lighten;
 }
-.hero-code-red .hero-sub {
-  color: rgba(255, 190, 175, 0.92);
+.hero-code-red .hero-title .painted,
+.hero-code-red .hero-title-stack .ht-name {
+  text-shadow: 0 0 32px rgba(255, 40, 30, 0.65), 0 2px 0 rgba(0, 0, 0, 0.4);
 }
-.hero-code-red .eyebrow {
-  color: var(--ac);
+.hero-code-red .hero-spec,
+.hero-code-red .hero-tag,
+.hero-code-red .hero-scroll {
+  color: rgba(255, 120, 100, 0.95);
 }
-.hero-nova .hero-sub {
-  color: rgba(255, 190, 220, 0.92);
-}
-.hero-nova .eyebrow {
-  color: var(--ac);
+.hero-code-red .hero-spec p:first-child { color: rgba(255, 180, 160, 0.95); }
+.hero-code-red .hero-sub { color: rgba(247, 247, 243, 0.9); }
+.hero-code-red .eyebrow { color: var(--ac); }
+.hero-code-red .hero-footer { display: none; }
+.hero-code-red .render-slot,
+.hero-nova .render-slot { overflow: visible; }
+.hero-code-red .hero-glow,
+.hero-nova .hero-glow {
+  inset: -8%;
+  opacity: 0.55;
 }
 
-/* Aathira's Nova — second hero, magenta/pink atmospheric field */
+/* Aathira's Nova — same mock layout in magenta/pink */
 .hero-nova {
   --ac: #ff2ea6;
   --ac2: #8b5cf6;
   --ac3: #46e6e6;
   --ac-dim: rgba(255, 46, 166, 0.18);
-  --ac-glow: rgba(255, 70, 180, 0.4);
+  --ac-glow: rgba(255, 70, 180, 0.42);
   background:
-    radial-gradient(58% 50% at 50% 40%, rgba(255, 70, 180, 0.38), transparent 72%),
-    radial-gradient(95% 80% at 50% 100%, rgba(60, 0, 50, 0.72), transparent 58%),
-    linear-gradient(180deg, #160314 0%, #5a0a45 36%, #a01878 70%, #2a0822 100%);
+    radial-gradient(55% 48% at 50% 42%, rgba(160, 20, 100, 0.32), transparent 70%),
+    linear-gradient(180deg, rgba(8,1,10,0.35) 0%, rgba(8,1,10,0.15) 40%, rgba(8,1,10,0.55) 100%),
+    url("assets/nova-bleed.jpg") center/cover no-repeat,
+    #160314;
 }
 .hero-nova::before {
-  background:
-    radial-gradient(46% 38% at 50% 36%, rgba(255, 90, 200, 0.26), transparent 72%);
+  background: radial-gradient(42% 34% at 50% 38%, rgba(255, 80, 190, 0.22), transparent 70%);
   opacity: 1;
 }
-.hero-nova .hero-ghost span {
-  -webkit-text-stroke-color: rgba(255, 200, 230, 0.16);
+.hero-nova .hero-ghost { display: none; }
+.hero-nova .hero-stage {
+  background: transparent;
+  inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  aspect-ratio: auto;
+  max-width: none;
 }
-.hero-nova .hero-ghost span:first-child {
-  color: rgba(255, 210, 235, 0.07);
-}
-.hero-nova .hero-title .painted {
-  text-shadow: 0 0 28px rgba(255, 46, 166, 0.55), 0 2px 0 rgba(0, 0, 0, 0.35);
-}
-.hero-nova .hero-spec,
-.hero-nova .hero-tag,
-.hero-nova .hero-scroll {
-  color: rgba(255, 170, 210, 0.92);
-}
-.hero-nova .hero-spec p:first-child { color: #fff; }
-.hero-nova .hero-footer {
-  border-top-color: rgba(255, 180, 220, 0.2);
-  color: rgba(255, 170, 210, 0.85);
-  background: linear-gradient(180deg, transparent, rgba(40, 0, 35, 0.4));
-}
-.hero-nova .hero-stage { background: transparent; }
 .hero-nova .hero-render {
   -webkit-mask-image: none;
           mask-image: none;
 }
-.hero-nova .hero-render > .render-vignette {
-  background:
-    radial-gradient(120% 105% at 50% 42%, transparent 58%, rgba(70, 0, 55, 0.45) 100%),
-    linear-gradient(180deg, rgba(50, 0, 40, 0.15) 0%, transparent 24%, transparent 62%, rgba(40, 0, 35, 0.55) 100%);
+.hero-nova .hero-render > .render-vignette,
+.hero-nova .scanline { display: none; }
+.hero-nova .tt-frame {
+  object-fit: cover;
+  object-position: center center;
+  mix-blend-mode: lighten;
 }
-.hero-nova .scanline { opacity: 0.35; }
+.hero-nova .hero-title .painted,
+.hero-nova .hero-title-stack .ht-name {
+  text-shadow: 0 0 32px rgba(255, 46, 166, 0.65), 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+.hero-nova .hero-spec,
+.hero-nova .hero-tag,
+.hero-nova .hero-scroll {
+  color: rgba(255, 140, 200, 0.95);
+}
+.hero-nova .hero-spec p:first-child { color: rgba(255, 190, 220, 0.95); }
+.hero-nova .hero-sub { color: rgba(247, 247, 243, 0.9); }
+.hero-nova .eyebrow { color: var(--ac); }
+.hero-nova .hero-footer { display: none; }
 
 /* ============================================================
    SPECIES SHOWCASE
@@ -1016,8 +1026,15 @@ figure { margin: 0; }
   .hero-ghost span:first-child { color: rgba(247,247,243,0.04); }
   .hero-stage {
     position: relative; left: auto; top: auto; transform: none;
-    width: min(78vw, 56svh); height: auto; aspect-ratio: 3 / 4;
+    width: min(92vw, 70svh); height: auto; aspect-ratio: 3 / 4;
     margin: 0 auto; flex: none;
+  }
+  .hero-code-red .hero-stage,
+  .hero-nova .hero-stage {
+    width: min(100vw, 78svh);
+    height: auto;
+    aspect-ratio: 3 / 4;
+    top: auto;
   }
   .hero-copy { margin-top: clamp(-96px, -11svh, -44px); }
   .hero-title { font-size: clamp(36px, 11vw, 58px); letter-spacing: 0; }
