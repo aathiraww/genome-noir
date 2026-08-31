@@ -1038,7 +1038,7 @@ figure { margin: 0; }
   }
   .hero-code-red .hero-stage,
   .hero-nova .hero-stage {
-    width: min(82vw, 62svh);
+    width: min(96vw, 78svh);
     height: auto;
     aspect-ratio: 3 / 4;
     top: auto;
