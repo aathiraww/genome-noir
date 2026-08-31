@@ -73,9 +73,9 @@ const SPECIES = {
     blurb: "A bio-engineered apex raptor built for shadow pursuit, stealth dominance and high-sensory precision. The silent purple apex of the Genome Noir collection.",
   },
   "code-red": {
-    id: "code-red", name: "Code Red", painted: "Code Red", ghost: "CODE RED",
+    id: "code-red", name: "Aathira\u2019s Code Red", painted: "Code Red", ghost: "CODE RED",
     img: "assets/code-red.jpg",
-    alt: "Code Red — a photorealistic thermal canid in glossy red environmental armour with a red LED visor",
+    alt: "Aathira's Code Red — a photorealistic thermal canid in glossy red environmental armour with a red LED visor",
     ac: "#ff2222", ac2: "#ff6a00", ac3: "#ff9d9d",
     specimen: "GN-0666",
     base: "THERMAL CANID",
@@ -158,7 +158,7 @@ const SPECIES = {
     blurb: "Its veins glow brighter near pollutants — a walking water-quality report. Acid Ghost patrols at night and sleeps wherever the moss is thickest.",
   },
 };
-const SPECIES_ORDER = ["kylaq", "nova", "void-claw", "code-red", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
+const SPECIES_ORDER = ["code-red", "nova", "kylaq", "void-claw", "pink-helix", "king-myco", "velvet-signal", "acid-ghost"];
 const TURNTABLE_FRAMES = 8;
 function turntableSrc(id, i) {
   return `assets/turntable/${id}-${((i % TURNTABLE_FRAMES) + TURNTABLE_FRAMES) % TURNTABLE_FRAMES}.jpg`;
@@ -280,7 +280,7 @@ const ENV_LABELS = { temperature: "TEMPERATURE", humidity: "HUMIDITY", light: "L
    GLOBAL STATE
    ============================================================ */
 const state = {
-  specimen: "kylaq",
+  specimen: "code-red",
   draft: null,
   mode: "species",
   habitat: "dome",
@@ -289,18 +289,23 @@ const state = {
   carePet: null,
 };
 
-function freshDraft(base = "kylaq") {
+function freshDraft(base = "code-red") {
   const wolf = base === "kylaq";
+  const thermal = base === "code-red";
   return {
     base, hybridWith: null, description: "",
-    form: "mammalian", surface: wolf ? "fur" : "wool",
-    appendages: ["legs"], sensory: wolf ? ["infrared sensing"] : ["uv vision"], adaptations: [],
-    microbiome: [], behaviour: wolf ? ["nocturnal", "curious"] : ["curious", "calm"],
+    form: "mammalian",
+    surface: wolf || thermal ? "fur" : "wool",
+    appendages: ["legs"],
+    sensory: thermal ? ["infrared sensing"] : wolf ? ["infrared sensing"] : ["uv vision"],
+    adaptations: thermal ? ["heat tolerance"] : [],
+    microbiome: [],
+    behaviour: wolf ? ["nocturnal", "curious"] : thermal ? ["independent", "curious"] : ["curious", "calm"],
     fashion: ["neon sensory visor"],
     modules: [],
   };
 }
-state.draft = freshDraft("kylaq");
+state.draft = freshDraft("code-red");
 
 /* ============================================================
    THEME ENGINE
@@ -435,11 +440,11 @@ function habitatCompat(draft, env) {
   function frame(t) {
     for (const render of renders) {
       if (reduceMotion.matches) { render.style.transform = ""; continue; }
+      // Keep motion subtle so the turntable reads as a clean shared vertical axis
       const phase = render.id === "novaHeroRender" ? 0.7 : 0;
-      const float = Math.sin(t * 0.00055 + phase) * 6;
-      const tilt = Math.sin(t * 0.00035 + phase) * (render.id === "novaHeroRender" ? 1.0 : 0.8);
-      const breathe = 1 + Math.sin(t * 0.001 + phase) * 0.006;
-      render.style.transform = `translateY(${float.toFixed(2)}px) rotateZ(${tilt.toFixed(2)}deg) scale(${breathe.toFixed(4)})`;
+      const float = Math.sin(t * 0.00045 + phase) * 3.5;
+      const breathe = 1 + Math.sin(t * 0.0009 + phase) * 0.004;
+      render.style.transform = `translateY(${float.toFixed(2)}px) scale(${breathe.toFixed(4)})`;
     }
     requestAnimationFrame(frame);
   }
@@ -513,19 +518,19 @@ function createTurntable({ a, b, periodMs = 16000, initialSpecies = "nova" }) {
 const showcaseTurntable = ($("#showImgA") && $("#showImgB")) ? createTurntable({
   a: $("#showImgA"),
   b: $("#showImgB"),
-  periodMs: 16000,
-  initialSpecies: "kylaq",
+  periodMs: 22000,
+  initialSpecies: "code-red",
 }) : null;
 const heroTurntable = ($("#heroImgA") && $("#heroImgB")) ? createTurntable({
   a: $("#heroImgA"),
   b: $("#heroImgB"),
-  periodMs: 18000,
-  initialSpecies: "kylaq",
+  periodMs: 24000,
+  initialSpecies: "code-red",
 }) : null;
 const novaHeroTurntable = ($("#novaHeroImgA") && $("#novaHeroImgB")) ? createTurntable({
   a: $("#novaHeroImgA"),
   b: $("#novaHeroImgB"),
-  periodMs: 18000,
+  periodMs: 24000,
   initialSpecies: "nova",
 }) : null;
 SPECIES_ORDER.forEach(preloadTurntable);
@@ -1442,7 +1447,7 @@ burger.addEventListener("click", () => {
 $$("[data-navlink]").forEach((a) => {
   a.addEventListener("click", () => {
     closeMenu();
-    if (a.hasAttribute("data-kylaq-link")) selectSpecimen("kylaq");
+    if (a.hasAttribute("data-code-red-link")) selectSpecimen("code-red");
     if (a.hasAttribute("data-nova-link")) selectSpecimen("nova");
   });
 });
