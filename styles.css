@@ -355,29 +355,30 @@ figure { margin: 0; }
 .hero-code-red .hero-stage {
   background: transparent;
   left: 50%;
-  top: 42%;
+  top: 46%;
   right: auto;
   bottom: auto;
-  width: min(68vh, 88vw);
+  /* Large atmospheric figure — chest-up fills the field without face zoom */
+  width: min(92svh, 100vw);
   height: auto;
   aspect-ratio: 3 / 4;
   transform: translate(-50%, -50%);
   max-width: none;
 }
 .hero-code-red .hero-render {
-  -webkit-mask-image: radial-gradient(120% 110% at 50% 42%, #000 58%, transparent 92%);
-          mask-image: radial-gradient(120% 110% at 50% 42%, #000 58%, transparent 92%);
+  -webkit-mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
+          mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
 }
 .hero-code-red .scanline { display: none; }
 .hero-code-red .hero-render > .render-vignette {
   display: block;
   background:
-    radial-gradient(120% 105% at 50% 42%, transparent 55%, rgba(40, 0, 0, 0.55) 100%),
-    linear-gradient(180deg, rgba(20,0,0,0.2) 0%, transparent 25%, transparent 60%, rgba(20,0,0,0.5) 100%);
+    radial-gradient(118% 105% at 50% 46%, transparent 52%, rgba(40, 0, 0, 0.5) 100%),
+    linear-gradient(180deg, rgba(20,0,0,0.18) 0%, transparent 22%, transparent 62%, rgba(20,0,0,0.48) 100%);
 }
 .hero-code-red .tt-frame {
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center center;
   mix-blend-mode: normal;
 }
 .hero-code-red .hero-title .painted,
@@ -421,29 +422,29 @@ figure { margin: 0; }
 .hero-nova .hero-stage {
   background: transparent;
   left: 50%;
-  top: 42%;
+  top: 46%;
   right: auto;
   bottom: auto;
-  width: min(68vh, 88vw);
+  width: min(92svh, 100vw);
   height: auto;
   aspect-ratio: 3 / 4;
   transform: translate(-50%, -50%);
   max-width: none;
 }
 .hero-nova .hero-render {
-  -webkit-mask-image: radial-gradient(120% 110% at 50% 42%, #000 58%, transparent 92%);
-          mask-image: radial-gradient(120% 110% at 50% 42%, #000 58%, transparent 92%);
+  -webkit-mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
+          mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
 }
 .hero-nova .scanline { display: none; }
 .hero-nova .hero-render > .render-vignette {
   display: block;
   background:
-    radial-gradient(120% 105% at 50% 42%, transparent 55%, rgba(40, 0, 30, 0.55) 100%),
-    linear-gradient(180deg, rgba(20,0,15,0.2) 0%, transparent 25%, transparent 60%, rgba(20,0,15,0.5) 100%);
+    radial-gradient(118% 105% at 50% 46%, transparent 52%, rgba(40, 0, 30, 0.5) 100%),
+    linear-gradient(180deg, rgba(20,0,15,0.18) 0%, transparent 22%, transparent 62%, rgba(20,0,15,0.48) 100%);
 }
 .hero-nova .tt-frame {
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center center;
   mix-blend-mode: normal;
 }
 .hero-nova .hero-title .painted,
