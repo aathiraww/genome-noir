@@ -352,33 +352,42 @@ figure { margin: 0; }
   opacity: 1;
 }
 .hero-code-red .hero-ghost { display: none; }
+/* Full-bleed cinematic field — atmosphere to every edge, no side cut/blur */
 .hero-code-red .hero-stage {
   background: transparent;
-  left: 50%;
-  top: 46%;
-  right: auto;
-  bottom: auto;
-  /* Large atmospheric figure — chest-up fills the field without face zoom */
-  width: min(92svh, 100vw);
-  height: auto;
-  aspect-ratio: 3 / 4;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  transform: none;
   max-width: none;
 }
 .hero-code-red .hero-render {
-  -webkit-mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
-          mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
+  -webkit-mask-image: none;
+          mask-image: none;
+  width: 100%;
+  height: 100%;
 }
 .hero-code-red .scanline { display: none; }
+.hero-code-red .hero-glow { display: none; }
 .hero-code-red .hero-render > .render-vignette {
   display: block;
-  background:
-    radial-gradient(118% 105% at 50% 46%, transparent 52%, rgba(40, 0, 0, 0.5) 100%),
-    linear-gradient(180deg, rgba(20,0,0,0.18) 0%, transparent 22%, transparent 62%, rgba(20,0,0,0.48) 100%);
+  /* Soft bottom wash for copy only — never darken/cut the sides */
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 58%,
+    rgba(10, 0, 0, 0.28) 78%,
+    rgba(8, 0, 0, 0.55) 100%
+  );
 }
 .hero-code-red .tt-frame {
   object-fit: cover;
-  object-position: center center;
+  object-position: center 42%;
   mix-blend-mode: normal;
 }
 .hero-code-red .hero-title .painted,
@@ -395,12 +404,7 @@ figure { margin: 0; }
 .hero-code-red .eyebrow { color: var(--ac); }
 .hero-code-red .hero-footer { display: none; }
 .hero-code-red .render-slot,
-.hero-nova .render-slot { overflow: visible; }
-.hero-code-red .hero-glow,
-.hero-nova .hero-glow {
-  inset: -8%;
-  opacity: 0.55;
-}
+.hero-nova .render-slot { overflow: hidden; }
 
 /* Aathira's Nova — same mock layout in magenta/pink */
 .hero-nova {
@@ -421,30 +425,38 @@ figure { margin: 0; }
 .hero-nova .hero-ghost { display: none; }
 .hero-nova .hero-stage {
   background: transparent;
-  left: 50%;
-  top: 46%;
-  right: auto;
-  bottom: auto;
-  width: min(92svh, 100vw);
-  height: auto;
-  aspect-ratio: 3 / 4;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  transform: none;
   max-width: none;
 }
 .hero-nova .hero-render {
-  -webkit-mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
-          mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
+  -webkit-mask-image: none;
+          mask-image: none;
+  width: 100%;
+  height: 100%;
 }
 .hero-nova .scanline { display: none; }
+.hero-nova .hero-glow { display: none; }
 .hero-nova .hero-render > .render-vignette {
   display: block;
-  background:
-    radial-gradient(118% 105% at 50% 46%, transparent 52%, rgba(40, 0, 30, 0.5) 100%),
-    linear-gradient(180deg, rgba(20,0,15,0.18) 0%, transparent 22%, transparent 62%, rgba(20,0,15,0.48) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 58%,
+    rgba(12, 0, 10, 0.28) 78%,
+    rgba(8, 0, 8, 0.55) 100%
+  );
 }
 .hero-nova .tt-frame {
   object-fit: cover;
-  object-position: center center;
+  object-position: center 42%;
   mix-blend-mode: normal;
 }
 .hero-nova .hero-title .painted,
@@ -1038,12 +1050,15 @@ figure { margin: 0; }
   }
   .hero-code-red .hero-stage,
   .hero-nova .hero-stage {
-    width: min(96vw, 78svh);
-    height: auto;
-    aspect-ratio: 3 / 4;
-    top: auto;
-    left: auto;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    top: 0;
+    left: 0;
     transform: none;
+    margin: 0;
   }
   .hero-copy { margin-top: clamp(-96px, -11svh, -44px); }
   .hero-title { font-size: clamp(36px, 11vw, 58px); letter-spacing: 0; }
