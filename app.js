@@ -77,7 +77,7 @@ const SPECIES = {
     img: "assets/code-red.jpg",
     alt: "Aathira's Code Red — a photorealistic thermal canid in glossy red environmental armour with a red LED visor",
     ac: "#ff2222", ac2: "#ff6a00", ac3: "#ff9d9d",
-    specimen: "GN-0666",
+    specimen: "GN-0606",
     base: "THERMAL CANID",
     inspiration: "DOBERMAN × THERMOGRAPH",
     surface: "MATTE_CARBON COAT",
