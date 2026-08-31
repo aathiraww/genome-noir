@@ -210,28 +210,28 @@ figure { margin: 0; }
 
 .hero-stage {
   position: absolute; z-index: 2;
-  left: 50%; top: 44%; transform: translate(-50%, -50%);
-  width: min(56vh, 86vw); aspect-ratio: 3 / 4;
+  left: 50%; top: 40%; transform: translate(-50%, -50%);
+  width: min(78vh, 96vw); aspect-ratio: 3 / 4;
   perspective: 1100px;
 }
 .hero-glow {
-  position: absolute; inset: -18%;
+  position: absolute; inset: -24%;
   background: radial-gradient(50% 42% at 50% 46%, var(--ac-glow), transparent 70%);
-  filter: blur(28px); opacity: 0.75;
+  filter: blur(36px); opacity: 0.88;
   animation: glowPulse 6s ease-in-out infinite;
   transition: background 0.9s var(--ease);
 }
 @keyframes glowPulse {
-  0%, 100% { opacity: 0.55; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.045); }
+  0%, 100% { opacity: 0.62; transform: scale(1); }
+  50% { opacity: 0.98; transform: scale(1.05); }
 }
 .hero-render {
   width: 100%; height: 100%;
   transform-origin: 50% 55%;
   transform-style: preserve-3d;
   will-change: transform;
-  -webkit-mask-image: radial-gradient(115% 108% at 50% 40%, #000 58%, transparent 92%);
-          mask-image: radial-gradient(115% 108% at 50% 40%, #000 58%, transparent 92%);
+  -webkit-mask-image: radial-gradient(135% 125% at 50% 40%, #000 50%, transparent 93%);
+          mask-image: radial-gradient(135% 125% at 50% 40%, #000 50%, transparent 93%);
 }
 
 /* Dual-buffer turntable — creature angles crossfade on a shared vertical axis */
@@ -239,7 +239,7 @@ figure { margin: 0; }
 .turntable .tt-frame {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
+  object-fit: cover; object-position: center 16%;
   opacity: 0; pointer-events: none;
   transform-origin: 50% 55%;
   will-change: opacity;
@@ -253,7 +253,8 @@ figure { margin: 0; }
 
 .hero-copy {
   position: relative; z-index: 4; text-align: center;
-  max-width: 900px;
+  max-width: 920px;
+  margin-bottom: 8px;
 }
 .hero-title {
   font-family: var(--font-cond);
@@ -262,14 +263,52 @@ figure { margin: 0; }
   text-wrap: balance;
   text-shadow: 0 4px 44px rgba(2,2,3,0.85);
 }
+.hero-title-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.hero-title-stack .ht-meet {
+  font-family: var(--font-cond);
+  font-style: normal;
+  font-size: clamp(36px, 5.8vw, 76px);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: 1;
+  text-shadow: 0 4px 36px rgba(2,2,3,0.9);
+}
+.hero-title-stack .ht-name {
+  display: block;
+  font-size: clamp(34px, 7.2vw, 90px);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  transform: rotate(-1.6deg);
+  max-width: 15ch;
+  text-wrap: balance;
+  text-shadow: 0 0 34px var(--ac-glow), 0 4px 40px rgba(2,2,3,0.75);
+}
+.hero-title-stack .ht-line {
+  display: block;
+  font-size: clamp(32px, 5.4vw, 72px);
+  letter-spacing: 0.01em;
+}
 .ht-line { display: block; }
 .hero-title .painted {
   font-size: 0.92em; letter-spacing: 0.01em;
   display: inline-block; transform: rotate(-1.6deg);
+  color: var(--ac);
+  font-family: var(--font-paint);
+  font-style: normal;
+  text-transform: none;
+}
+.hero-title-stack .painted {
+  font-size: 1em;
+  transform: rotate(-1.6deg);
 }
 .hero-sub {
-  color: var(--grey); max-width: 520px; margin: 20px auto 30px;
-  font-size: 15px;
+  color: rgba(247,247,243,0.86); max-width: 540px; margin: 18px auto 28px;
+  font-size: 15.5px;
 }
 .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
@@ -335,15 +374,26 @@ figure { margin: 0; }
 }
 .hero-code-red .hero-stage { background: transparent; }
 .hero-code-red .hero-render {
-  -webkit-mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
-          mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
+  -webkit-mask-image: none;
+          mask-image: none;
 }
 .hero-code-red .hero-render > .render-vignette {
   background:
     radial-gradient(120% 105% at 50% 42%, transparent 58%, rgba(90, 0, 0, 0.45) 100%),
     linear-gradient(180deg, rgba(60, 0, 0, 0.15) 0%, transparent 24%, transparent 62%, rgba(50, 0, 0, 0.55) 100%);
 }
-.hero-code-red .scanline { opacity: 0.35; }
+.hero-code-red .hero-sub {
+  color: rgba(255, 190, 175, 0.92);
+}
+.hero-code-red .eyebrow {
+  color: var(--ac);
+}
+.hero-nova .hero-sub {
+  color: rgba(255, 190, 220, 0.92);
+}
+.hero-nova .eyebrow {
+  color: var(--ac);
+}
 
 /* Aathira's Nova — second hero, magenta/pink atmospheric field */
 .hero-nova {
@@ -384,8 +434,8 @@ figure { margin: 0; }
 }
 .hero-nova .hero-stage { background: transparent; }
 .hero-nova .hero-render {
-  -webkit-mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
-          mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
+  -webkit-mask-image: none;
+          mask-image: none;
 }
 .hero-nova .hero-render > .render-vignette {
   background:
@@ -972,7 +1022,14 @@ figure { margin: 0; }
   .hero-copy { margin-top: clamp(-96px, -11svh, -44px); }
   .hero-title { font-size: clamp(36px, 11vw, 58px); letter-spacing: 0; }
   .hero-title .painted { white-space: nowrap; font-size: clamp(28px, 9.6vw, 54px); }
-  .hero-code-red .hero-title .painted { font-size: clamp(24px, 8.4vw, 46px); }
+  .hero-title-stack .ht-meet { font-size: clamp(30px, 9vw, 48px); }
+  .hero-title-stack .ht-name {
+    white-space: normal;
+    font-size: clamp(28px, 9.4vw, 52px);
+    max-width: 12ch;
+  }
+  .hero-title-stack .ht-line { font-size: clamp(28px, 8.6vw, 46px); }
+  .hero-code-red .hero-title-stack .ht-name { font-size: clamp(24px, 8.2vw, 46px); }
   .hero-sub { font-size: 15.5px; margin: 16px auto 24px; }
   .hero-spec {
     position: static; text-align: center; line-height: 1.9;
