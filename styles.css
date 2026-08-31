@@ -296,23 +296,103 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* Aathira's Code Red — landing hero, crimson thermal accent */
+/* Aathira's Code Red — landing hero, crimson atmospheric field */
 .hero-code-red {
   --ac: #ff2222;
   --ac2: #ff6a00;
   --ac3: #ff9d9d;
-  --ac-dim: rgba(255, 34, 34, 0.14);
-  --ac-glow: rgba(255, 34, 34, 0.36);
+  --ac-dim: rgba(255, 34, 34, 0.18);
+  --ac-glow: rgba(255, 48, 32, 0.42);
+  background:
+    radial-gradient(58% 50% at 50% 40%, rgba(255, 55, 40, 0.42), transparent 72%),
+    radial-gradient(95% 80% at 50% 100%, rgba(70, 0, 0, 0.75), transparent 58%),
+    linear-gradient(180deg, #1c0202 0%, #6e0a0a 36%, #b41212 70%, #3a0505 100%);
 }
+.hero-code-red::before {
+  background:
+    radial-gradient(46% 38% at 50% 36%, rgba(255, 70, 40, 0.28), transparent 72%);
+  opacity: 1;
+}
+.hero-code-red .hero-ghost span {
+  -webkit-text-stroke-color: rgba(255, 210, 190, 0.16);
+}
+.hero-code-red .hero-ghost span:first-child {
+  color: rgba(255, 220, 200, 0.07);
+}
+.hero-code-red .hero-title .painted {
+  text-shadow: 0 0 28px rgba(255, 40, 30, 0.55), 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+.hero-code-red .hero-spec,
+.hero-code-red .hero-tag,
+.hero-code-red .hero-scroll {
+  color: rgba(255, 170, 150, 0.92);
+}
+.hero-code-red .hero-spec p:first-child { color: #fff; }
+.hero-code-red .hero-footer {
+  border-top-color: rgba(255, 180, 160, 0.2);
+  color: rgba(255, 170, 150, 0.85);
+  background: linear-gradient(180deg, transparent, rgba(40, 0, 0, 0.4));
+}
+.hero-code-red .hero-stage { background: transparent; }
+.hero-code-red .hero-render {
+  -webkit-mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
+          mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
+}
+.hero-code-red .hero-render > .render-vignette {
+  background:
+    radial-gradient(120% 105% at 50% 42%, transparent 58%, rgba(90, 0, 0, 0.45) 100%),
+    linear-gradient(180deg, rgba(60, 0, 0, 0.15) 0%, transparent 24%, transparent 62%, rgba(50, 0, 0, 0.55) 100%);
+}
+.hero-code-red .scanline { opacity: 0.35; }
 
-/* Aathira's Nova — second hero keeps pink accent */
+/* Aathira's Nova — second hero, magenta/pink atmospheric field */
 .hero-nova {
   --ac: #ff2ea6;
   --ac2: #8b5cf6;
   --ac3: #46e6e6;
-  --ac-dim: rgba(255, 46, 166, 0.14);
-  --ac-glow: rgba(255, 46, 166, 0.32);
+  --ac-dim: rgba(255, 46, 166, 0.18);
+  --ac-glow: rgba(255, 70, 180, 0.4);
+  background:
+    radial-gradient(58% 50% at 50% 40%, rgba(255, 70, 180, 0.38), transparent 72%),
+    radial-gradient(95% 80% at 50% 100%, rgba(60, 0, 50, 0.72), transparent 58%),
+    linear-gradient(180deg, #160314 0%, #5a0a45 36%, #a01878 70%, #2a0822 100%);
 }
+.hero-nova::before {
+  background:
+    radial-gradient(46% 38% at 50% 36%, rgba(255, 90, 200, 0.26), transparent 72%);
+  opacity: 1;
+}
+.hero-nova .hero-ghost span {
+  -webkit-text-stroke-color: rgba(255, 200, 230, 0.16);
+}
+.hero-nova .hero-ghost span:first-child {
+  color: rgba(255, 210, 235, 0.07);
+}
+.hero-nova .hero-title .painted {
+  text-shadow: 0 0 28px rgba(255, 46, 166, 0.55), 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+.hero-nova .hero-spec,
+.hero-nova .hero-tag,
+.hero-nova .hero-scroll {
+  color: rgba(255, 170, 210, 0.92);
+}
+.hero-nova .hero-spec p:first-child { color: #fff; }
+.hero-nova .hero-footer {
+  border-top-color: rgba(255, 180, 220, 0.2);
+  color: rgba(255, 170, 210, 0.85);
+  background: linear-gradient(180deg, transparent, rgba(40, 0, 35, 0.4));
+}
+.hero-nova .hero-stage { background: transparent; }
+.hero-nova .hero-render {
+  -webkit-mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
+          mask-image: radial-gradient(125% 115% at 50% 42%, #000 48%, transparent 90%);
+}
+.hero-nova .hero-render > .render-vignette {
+  background:
+    radial-gradient(120% 105% at 50% 42%, transparent 58%, rgba(70, 0, 55, 0.45) 100%),
+    linear-gradient(180deg, rgba(50, 0, 40, 0.15) 0%, transparent 24%, transparent 62%, rgba(40, 0, 35, 0.55) 100%);
+}
+.hero-nova .scanline { opacity: 0.35; }
 
 /* ============================================================
    SPECIES SHOWCASE
