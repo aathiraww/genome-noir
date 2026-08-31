@@ -343,10 +343,9 @@ figure { margin: 0; }
   --ac-dim: rgba(255, 34, 34, 0.18);
   --ac-glow: rgba(255, 48, 32, 0.45);
   background:
-    radial-gradient(55% 48% at 50% 42%, rgba(180, 20, 20, 0.35), transparent 70%),
-    linear-gradient(180deg, rgba(5,1,1,0.35) 0%, rgba(5,1,1,0.15) 40%, rgba(5,1,1,0.55) 100%),
-    url("assets/code-red-bleed.jpg") center/cover no-repeat,
-    #1a0202;
+    radial-gradient(58% 50% at 50% 40%, rgba(200, 30, 30, 0.45), transparent 72%),
+    radial-gradient(100% 80% at 50% 100%, rgba(20, 0, 0, 0.85), transparent 55%),
+    linear-gradient(180deg, #050101 0%, #4a0808 34%, #9a1414 68%, #1a0202 100%);
 }
 .hero-code-red::before {
   background: radial-gradient(42% 34% at 50% 38%, rgba(255, 60, 40, 0.22), transparent 70%);
@@ -355,27 +354,32 @@ figure { margin: 0; }
 .hero-code-red .hero-ghost { display: none; }
 .hero-code-red .hero-stage {
   background: transparent;
-  inset: 0;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  transform: none;
-  aspect-ratio: auto;
+  left: 50%;
+  top: 46%;
+  right: auto;
+  bottom: auto;
+  /* Large atmospheric figure — chest-up fills the field without face zoom */
+  width: min(92svh, 100vw);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  transform: translate(-50%, -50%);
   max-width: none;
 }
 .hero-code-red .hero-render {
-  -webkit-mask-image: none;
-          mask-image: none;
+  -webkit-mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
+          mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
 }
-.hero-code-red .hero-render > .render-vignette,
 .hero-code-red .scanline { display: none; }
+.hero-code-red .hero-render > .render-vignette {
+  display: block;
+  background:
+    radial-gradient(118% 105% at 50% 46%, transparent 52%, rgba(40, 0, 0, 0.5) 100%),
+    linear-gradient(180deg, rgba(20,0,0,0.18) 0%, transparent 22%, transparent 62%, rgba(20,0,0,0.48) 100%);
+}
 .hero-code-red .tt-frame {
   object-fit: cover;
   object-position: center center;
-  mix-blend-mode: lighten;
+  mix-blend-mode: normal;
 }
 .hero-code-red .hero-title .painted,
 .hero-code-red .hero-title-stack .ht-name {
@@ -406,10 +410,9 @@ figure { margin: 0; }
   --ac-dim: rgba(255, 46, 166, 0.18);
   --ac-glow: rgba(255, 70, 180, 0.42);
   background:
-    radial-gradient(55% 48% at 50% 42%, rgba(160, 20, 100, 0.32), transparent 70%),
-    linear-gradient(180deg, rgba(8,1,10,0.35) 0%, rgba(8,1,10,0.15) 40%, rgba(8,1,10,0.55) 100%),
-    url("assets/nova-bleed.jpg") center/cover no-repeat,
-    #160314;
+    radial-gradient(58% 50% at 50% 40%, rgba(200, 40, 140, 0.42), transparent 72%),
+    radial-gradient(100% 80% at 50% 100%, rgba(20, 0, 18, 0.85), transparent 55%),
+    linear-gradient(180deg, #08010a 0%, #4a0a38 34%, #9a1878 68%, #160314 100%);
 }
 .hero-nova::before {
   background: radial-gradient(42% 34% at 50% 38%, rgba(255, 80, 190, 0.22), transparent 70%);
@@ -418,27 +421,31 @@ figure { margin: 0; }
 .hero-nova .hero-ghost { display: none; }
 .hero-nova .hero-stage {
   background: transparent;
-  inset: 0;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  transform: none;
-  aspect-ratio: auto;
+  left: 50%;
+  top: 46%;
+  right: auto;
+  bottom: auto;
+  width: min(92svh, 100vw);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  transform: translate(-50%, -50%);
   max-width: none;
 }
 .hero-nova .hero-render {
-  -webkit-mask-image: none;
-          mask-image: none;
+  -webkit-mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
+          mask-image: radial-gradient(118% 108% at 50% 46%, #000 52%, transparent 90%);
 }
-.hero-nova .hero-render > .render-vignette,
 .hero-nova .scanline { display: none; }
+.hero-nova .hero-render > .render-vignette {
+  display: block;
+  background:
+    radial-gradient(118% 105% at 50% 46%, transparent 52%, rgba(40, 0, 30, 0.5) 100%),
+    linear-gradient(180deg, rgba(20,0,15,0.18) 0%, transparent 22%, transparent 62%, rgba(20,0,15,0.48) 100%);
+}
 .hero-nova .tt-frame {
   object-fit: cover;
   object-position: center center;
-  mix-blend-mode: lighten;
+  mix-blend-mode: normal;
 }
 .hero-nova .hero-title .painted,
 .hero-nova .hero-title-stack .ht-name {
@@ -1031,10 +1038,12 @@ figure { margin: 0; }
   }
   .hero-code-red .hero-stage,
   .hero-nova .hero-stage {
-    width: min(100vw, 78svh);
+    width: min(96vw, 78svh);
     height: auto;
     aspect-ratio: 3 / 4;
     top: auto;
+    left: auto;
+    transform: none;
   }
   .hero-copy { margin-top: clamp(-96px, -11svh, -44px); }
   .hero-title { font-size: clamp(36px, 11vw, 58px); letter-spacing: 0; }
