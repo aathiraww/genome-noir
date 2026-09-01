@@ -374,12 +374,12 @@ figure { margin: 0; }
 .hero-code-red .hero-stage {
   position: absolute;
   left: 50%;
-  top: 52%;
+  top: 46%;
   right: auto;
   bottom: auto;
   transform: translate(-50%, -50%);
-  width: clamp(300px, 39vw, 620px);
-  height: min(86svh, 900px);
+  width: clamp(340px, 40vw, 620px);
+  height: min(90svh, 940px);
   aspect-ratio: auto;
   max-width: 620px;
   background: transparent;
@@ -417,7 +417,7 @@ figure { margin: 0; }
   position: absolute;
   left: 50%;
   top: auto;
-  bottom: clamp(64px, 11svh, 118px);
+  bottom: clamp(56px, 9.5svh, 108px);
   transform: translateX(-50%);
   width: min(680px, 86vw);
   max-width: 680px;
@@ -546,6 +546,7 @@ figure { margin: 0; }
 .hero-nova .hero-sub { color: rgba(247, 247, 243, 0.9); }
 .hero-nova .eyebrow { color: var(--ac); }
 .hero-nova .hero-footer { display: none; }
+.hero-nova .render-slot { overflow: hidden; }
 
 /* ============================================================
    SPECIES SHOWCASE
@@ -1122,7 +1123,49 @@ figure { margin: 0; }
     width: min(92vw, 70svh); height: auto; aspect-ratio: 3 / 4;
     margin: 0 auto; flex: none;
   }
-  .hero-code-red .hero-stage,
+  .hero-code-red {
+    height: 100svh;
+    max-height: 100svh;
+    padding: 0;
+    display: block;
+  }
+  .hero-code-red .hero-stage {
+    position: absolute;
+    left: 50%;
+    top: 44%;
+    transform: translate(-50%, -50%);
+    width: min(78vw, 420px);
+    height: min(62svh, 560px);
+    margin: 0;
+    aspect-ratio: auto;
+  }
+  .hero-code-red .tt-frame {
+    object-fit: contain;
+    object-position: center center;
+  }
+  .hero-code-red .hero-copy {
+    position: absolute;
+    left: 50%;
+    bottom: max(72px, env(safe-area-inset-bottom) + 56px);
+    transform: translateX(-50%);
+    width: min(92vw, 520px);
+    margin: 0;
+  }
+  .hero-code-red .hero-spec {
+    position: absolute;
+    left: 16px;
+    bottom: max(56px, env(safe-area-inset-bottom) + 40px);
+    text-align: left;
+    margin: 0;
+    order: unset;
+  }
+  .hero-code-red .hero-scroll {
+    position: absolute;
+    left: 50%;
+    bottom: max(18px, env(safe-area-inset-bottom) + 10px);
+    transform: translateX(-50%);
+    margin: 0;
+  }
   .hero-nova .hero-stage {
     position: absolute;
     inset: 0;
