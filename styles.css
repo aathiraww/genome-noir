@@ -335,76 +335,150 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* Aathira's Code Red — landing hero matching approved mock */
+/* ============================================================
+   AATHIRA'S CODE RED — contained foreground hero (ref mock)
+   Root cause of prior zoom: full-viewport stage + object-fit:cover
+   on wide smoke assets. Rebuilt as centered contain figure.
+   Optimized for ~1536×1024 desktop: dog ~550–650px wide.
+   ============================================================ */
 .hero-code-red {
   --ac: #ff2222;
   --ac2: #ff6a00;
   --ac3: #ff9d9d;
-  --ac-dim: rgba(255, 34, 34, 0.18);
-  --ac-glow: rgba(255, 48, 32, 0.45);
+  --ac-dim: rgba(255, 34, 34, 0.14);
+  --ac-glow: rgba(255, 48, 32, 0.38);
+  /* Single viewport; dark field with localized red — not oversized smoke */
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  max-height: 100svh;
+  display: block;
+  padding: 0;
+  overflow: hidden;
   background:
-    radial-gradient(58% 50% at 50% 40%, rgba(200, 30, 30, 0.45), transparent 72%),
-    radial-gradient(100% 80% at 50% 100%, rgba(20, 0, 0, 0.85), transparent 55%),
-    linear-gradient(180deg, #050101 0%, #4a0808 34%, #9a1414 68%, #1a0202 100%);
+    radial-gradient(38% 42% at 50% 38%, rgba(120, 18, 18, 0.55), transparent 70%),
+    radial-gradient(70% 55% at 50% 100%, rgba(40, 0, 0, 0.9), transparent 60%),
+    linear-gradient(180deg, #050101 0%, #120303 42%, #1a0505 72%, #050101 100%);
 }
 .hero-code-red::before {
-  background: radial-gradient(42% 34% at 50% 38%, rgba(255, 60, 40, 0.22), transparent 70%);
+  background:
+    radial-gradient(28% 22% at 50% 36%, rgba(255, 50, 40, 0.16), transparent 72%),
+    linear-gradient(90deg, transparent 18%, rgba(180, 20, 20, 0.12) 50%, transparent 82%);
   opacity: 1;
+  z-index: 0;
 }
 .hero-code-red .hero-ghost { display: none; }
-/* Full-bleed cinematic field — atmosphere to every edge, no side cut/blur */
+
+/* Centered foreground stage — fixed visual width, NOT full-bleed cover */
 .hero-code-red .hero-stage {
-  background: transparent;
-  inset: 0;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 39vw, 620px);
+  height: min(86svh, 900px);
   aspect-ratio: auto;
-  transform: none;
-  max-width: none;
+  max-width: 620px;
+  background: transparent;
+  perspective: 1100px;
+  z-index: 2;
+}
+.hero-code-red .hero-glow {
+  display: block;
+  inset: -8% -18%;
+  opacity: 0.7;
+  filter: blur(28px);
+  background: radial-gradient(46% 40% at 50% 42%, rgba(255, 40, 30, 0.42), transparent 72%);
+  animation: none;
 }
 .hero-code-red .hero-render {
-  -webkit-mask-image: none;
-          mask-image: none;
   width: 100%;
   height: 100%;
+  overflow: visible;
+  -webkit-mask-image: radial-gradient(90% 88% at 50% 46%, #000 62%, transparent 96%);
+          mask-image: radial-gradient(90% 88% at 50% 46%, #000 62%, transparent 96%);
 }
 .hero-code-red .scanline { display: none; }
-.hero-code-red .hero-glow { display: none; }
 .hero-code-red .hero-render > .render-vignette {
-  display: block;
-  /* Soft bottom wash for copy only — never darken/cut the sides */
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    transparent 58%,
-    rgba(10, 0, 0, 0.28) 78%,
-    rgba(8, 0, 0, 0.55) 100%
-  );
+  display: none;
 }
+/* CRITICAL: contain — never cover/zoom-crop the dog */
 .hero-code-red .tt-frame {
-  object-fit: cover;
-  object-position: center 42%;
+  object-fit: contain;
+  object-position: center center;
   mix-blend-mode: normal;
 }
-.hero-code-red .hero-title .painted,
+
+/* Copy sits over lower chest/torso — not over eyes/head */
+.hero-code-red .hero-copy {
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: clamp(64px, 11svh, 118px);
+  transform: translateX(-50%);
+  width: min(680px, 86vw);
+  max-width: 680px;
+  margin: 0;
+  z-index: 5;
+  text-align: center;
+  pointer-events: none;
+}
+.hero-code-red .hero-copy .btn,
+.hero-code-red .hero-copy a {
+  pointer-events: auto;
+}
+.hero-code-red .eyebrow {
+  color: var(--ac);
+  font-size: clamp(9px, 0.72vw, 11px);
+  letter-spacing: 0.18em;
+  margin-bottom: 10px;
+}
+.hero-code-red .hero-title-stack {
+  gap: 2px;
+}
+.hero-code-red .hero-title-stack .ht-meet {
+  font-size: clamp(40px, 4.6vw, 70px);
+  line-height: 0.95;
+}
 .hero-code-red .hero-title-stack .ht-name {
-  text-shadow: 0 0 32px rgba(255, 40, 30, 0.65), 0 2px 0 rgba(0, 0, 0, 0.4);
+  font-size: clamp(34px, 5.4vw, 78px);
+  max-width: 14ch;
+  text-shadow: 0 0 28px rgba(255, 40, 30, 0.55), 0 2px 0 rgba(0, 0, 0, 0.45);
 }
+.hero-code-red .hero-title-stack .ht-line {
+  font-size: clamp(34px, 4.4vw, 64px);
+  line-height: 0.98;
+}
+.hero-code-red .hero-sub {
+  color: rgba(247, 247, 243, 0.9);
+  max-width: 460px;
+  margin: 14px auto 22px;
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.45;
+}
+.hero-code-red .hero-ctas {
+  gap: 14px;
+}
+
 .hero-code-red .hero-spec,
-.hero-code-red .hero-tag,
-.hero-code-red .hero-scroll {
-  color: rgba(255, 120, 100, 0.95);
+.hero-code-red .hero-tag {
+  bottom: clamp(88px, 14svh, 140px);
+  color: rgba(255, 110, 95, 0.95);
+  font-size: clamp(9px, 0.7vw, 11px);
+  z-index: 5;
 }
-.hero-code-red .hero-spec p:first-child { color: rgba(255, 180, 160, 0.95); }
-.hero-code-red .hero-sub { color: rgba(247, 247, 243, 0.9); }
-.hero-code-red .eyebrow { color: var(--ac); }
+.hero-code-red .hero-spec p:first-child { color: rgba(255, 170, 155, 0.95); }
+.hero-code-red .hero-scroll {
+  bottom: clamp(28px, 4.5svh, 48px);
+  color: rgba(255, 110, 95, 0.95);
+  font-size: clamp(9px, 0.7vw, 11px);
+  z-index: 5;
+}
 .hero-code-red .hero-footer { display: none; }
-.hero-code-red .render-slot,
-.hero-nova .render-slot { overflow: hidden; }
+.hero-code-red .render-slot { overflow: visible; }
 
 /* Aathira's Nova — same mock layout in magenta/pink */
 .hero-nova {
