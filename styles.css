@@ -436,7 +436,7 @@ figure { margin: 0; }
 .hero-code-red .hero-copy {
   position: absolute;
   left: 50%;
-  top: 55vh;
+  top: 58vh;
   bottom: auto;
   transform: translateX(-50%);
   width: min(920px, 92vw);
@@ -461,8 +461,8 @@ figure { margin: 0; }
   gap: 0.02em;
 }
 .hero-code-red .hero-title-stack .ht-meet {
-  font-size: clamp(72px, 6.8vw, 104px);
-  line-height: 0.92;
+  font-size: clamp(78px, 7vw, 104px);
+  line-height: 0.9;
   letter-spacing: 0.01em;
 }
 .hero-code-red .hero-title-stack .ht-name {
