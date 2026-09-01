@@ -378,10 +378,12 @@ figure { margin: 0; }
   right: auto;
   bottom: auto;
   transform: translate(-50%, -50%);
+  /* Width drives scale; height follows 3:4 so contain never shrinks the dog */
   width: clamp(340px, 40vw, 620px);
-  height: min(90svh, 940px);
-  aspect-ratio: auto;
+  height: auto;
+  aspect-ratio: 3 / 4;
   max-width: 620px;
+  max-height: min(90svh, 920px);
   background: transparent;
   perspective: 1100px;
   z-index: 2;
@@ -479,6 +481,30 @@ figure { margin: 0; }
 }
 .hero-code-red .hero-footer { display: none; }
 .hero-code-red .render-slot { overflow: visible; }
+
+/* Desktop lock — ~1536×1024 composition */
+@media (min-width: 1200px) {
+  .hero-code-red .hero-stage {
+    width: 600px;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: min(90svh, 800px);
+    top: 47%;
+  }
+  .hero-code-red .hero-copy {
+    bottom: 8.5svh;
+  }
+  .hero-code-red .hero-title-stack .ht-meet {
+    font-size: 64px;
+  }
+  .hero-code-red .hero-title-stack .ht-name {
+    font-size: 72px;
+  }
+  .hero-code-red .hero-title-stack .ht-line {
+    font-size: 58px;
+  }
+}
 
 /* Aathira's Nova — same mock layout in magenta/pink */
 .hero-nova {
