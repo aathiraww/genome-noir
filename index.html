@@ -46,19 +46,18 @@
 
 <!-- ======================= HERO — AATHIRA'S CODE RED (FIRST) ======================= -->
 <section class="hero hero-code-red" id="home" aria-label="Aathira's Code Red — thermal sentinel companion">
-  <div class="hero-ghost" aria-hidden="true"><span>GENOME</span><span>NOIR</span></div>
+  <!-- Layer 1: page field via CSS background on .hero-code-red -->
 
-  <div class="hero-stage" id="heroStage">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <figure class="render-slot hero-render turntable" id="heroRender" data-render-slot="hero">
-      <img src="assets/turntable/code-red-0.jpg" alt="Aathira's Code Red — photorealistic thermal canid in glossy red vinyl armour with glowing red LED visor in a crimson atmospheric field" id="heroImgA" class="tt-frame is-front" fetchpriority="high" decoding="async" />
+  <!-- Layer 2: large centered dog (not a boxed stage) -->
+  <div class="cr-dog" id="heroStage" aria-hidden="false">
+    <figure class="cr-dog-frame turntable" id="heroRender" data-render-slot="hero">
+      <img src="assets/turntable/code-red-0.jpg" alt="Aathira's Code Red — photorealistic thermal canid in glossy red vinyl armour with glowing red LED visor" id="heroImgA" class="tt-frame is-front" fetchpriority="high" decoding="async" />
       <img src="assets/turntable/code-red-1.jpg" alt="" id="heroImgB" class="tt-frame" aria-hidden="true" loading="lazy" decoding="async" />
-      <div class="scanline" aria-hidden="true"></div>
-      <div class="render-vignette" aria-hidden="true"></div>
     </figure>
   </div>
 
-  <div class="hero-copy">
+  <!-- Layer 3: lower-half typography -->
+  <div class="hero-copy cr-copy">
     <p class="eyebrow mono">THE SYNTHETIC PET LAB — THERMAL SENTINEL</p>
     <h1 class="hero-title hero-title-stack">
       <span class="ht-meet">Meet</span>
@@ -87,7 +86,6 @@
   </aside>
 
   <div class="hero-scroll mono" aria-hidden="true">SCROLL&nbsp;— 01 / AATHIRA&rsquo;S NOVA</div>
-  <div class="hero-footer mono" aria-hidden="true">THERMAL CANID LINE &nbsp;•&nbsp; RED VINYL ENVIRO-ARMOUR &nbsp;•&nbsp; LED VISOR &nbsp;•&nbsp; GENOME NOIR EXCLUSIVE</div>
 </section>
 
 <!-- ======================= HERO — AATHIRA'S NOVA (SECOND) ======================= -->
