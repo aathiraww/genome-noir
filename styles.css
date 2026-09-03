@@ -335,272 +335,77 @@ figure { margin: 0; }
   font-size: 9.5px;
 }
 
-/* ============================================================
-   AATHIRA'S CODE RED — full-page atmosphere + centered dog
-   Smoke is a HERO-LEVEL full-viewport layer (never inside .cr-dog).
-   ============================================================ */
+/* Aathira's Code Red — landing hero matching approved mock */
 .hero-code-red {
   --ac: #ff2222;
   --ac2: #ff6a00;
   --ac3: #ff9d9d;
-  --ac-dim: rgba(255, 34, 34, 0.12);
-  --ac-glow: rgba(255, 40, 30, 0.35);
-  position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 100vh;
-  min-height: 100svh;
-  max-height: 100svh;
-  display: block;
-  padding: 0;
-  overflow: hidden;
-  /* Deep black base — atmosphere paints the red haze */
-  background: #030101;
-}
-.hero-code-red::before,
-.hero-code-red::after {
-  content: none;
-  display: none;
-}
-.hero-code-red .hero-ghost,
-.hero-code-red .hero-footer { display: none !important; }
-
-/* ---- Full-hero atmosphere stack (edge-to-edge) ---- */
-.hero-code-red .cr-atmosphere {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.hero-code-red .cr-atmosphere-base {
-  position: absolute;
-  inset: 0;
+  --ac-dim: rgba(255, 34, 34, 0.18);
+  --ac-glow: rgba(255, 48, 32, 0.45);
   background:
-    /* wide cinematic field — red haze reaches far left/right before going black */
-    radial-gradient(120% 80% at 50% 40%, rgba(90, 12, 12, 0.85), transparent 70%),
-    radial-gradient(80% 55% at 18% 55%, rgba(70, 8, 8, 0.45), transparent 60%),
-    radial-gradient(80% 55% at 82% 55%, rgba(70, 8, 8, 0.45), transparent 60%),
-    radial-gradient(100% 70% at 50% 100%, rgba(25, 0, 0, 0.98), transparent 55%),
-    linear-gradient(180deg, #040101 0%, #140303 48%, #1c0606 78%, #050101 100%);
+    radial-gradient(58% 50% at 50% 40%, rgba(200, 30, 30, 0.45), transparent 72%),
+    radial-gradient(100% 80% at 50% 100%, rgba(20, 0, 0, 0.85), transparent 55%),
+    linear-gradient(180deg, #050101 0%, #4a0808 34%, #9a1414 68%, #1a0202 100%);
 }
-/* Primary smoke — full viewport span, soft blur, no oval box mask */
-.hero-code-red .cr-atmosphere-smoke {
-  position: absolute;
-  inset: -25% -15%;
-  background-image: url("assets/code-red-smoke.jpg");
-  background-size: 140% 140%;
-  background-position: center 40%;
-  background-repeat: no-repeat;
-  opacity: 0.55;
-  filter: blur(42px) saturate(1.25) brightness(0.8) contrast(1.05);
-  mix-blend-mode: screen;
-  /* Only feather the extreme edges — still spans nearly full width */
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-  -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-          mask-composite: intersect;
-}
-.hero-code-red .cr-atmosphere-smoke-b {
-  inset: -35% -20%;
-  opacity: 0.38;
-  filter: blur(64px) saturate(1.3) brightness(0.7);
-  transform: scaleX(-1) scale(1.15);
-  background-position: 40% 55%;
-  mix-blend-mode: soft-light;
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-          mask-composite: intersect;
-}
-/* Hot core + wide secondary wash so haze isn't a center column */
-.hero-code-red .cr-atmosphere-glow {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(42% 48% at 50% 34%, rgba(255, 55, 40, 0.42), transparent 70%),
-    radial-gradient(95% 60% at 50% 48%, rgba(150, 22, 22, 0.28), transparent 78%),
-    radial-gradient(50% 40% at 15% 60%, rgba(120, 16, 16, 0.2), transparent 70%),
-    radial-gradient(50% 40% at 85% 60%, rgba(120, 16, 16, 0.2), transparent 70%);
-  mix-blend-mode: screen;
+.hero-code-red::before {
+  background: radial-gradient(42% 34% at 50% 38%, rgba(255, 60, 40, 0.22), transparent 70%);
   opacity: 1;
   filter: blur(2px);
 }
-.hero-code-red .cr-atmosphere-flare {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 30%;
-  height: 160px;
-  transform: translateY(-50%);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 50, 40, 0.1) 12%,
-    rgba(255, 70, 55, 0.4) 50%,
-    rgba(255, 50, 40, 0.1) 88%,
-    transparent 100%
-  );
-  filter: blur(18px);
-  opacity: 0.8;
-  mix-blend-mode: screen;
-}
-
-/* ---- Dog foreground (subject only; atmosphere is separate) ---- */
-.hero-code-red .cr-dog {
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translateX(-50%);
-  z-index: 2;
-  height: 110vh;
-  width: auto;
-  max-width: none;
-  background: none;
-  box-shadow: none;
-  border: 0;
-  pointer-events: none;
-}
-.hero-code-red .cr-dog-frame {
-  position: relative;
-  display: block;
-  height: 100%;
-  width: auto;
-  aspect-ratio: 3 / 4;
-  margin: 0;
-  overflow: visible;
-  background: none;
-  /* Subject-only soft mask — no portrait smoke panel */
-  -webkit-mask-image: radial-gradient(52% 58% at 50% 38%, #000 38%, rgba(0,0,0,0.65) 58%, transparent 78%);
-          mask-image: radial-gradient(52% 58% at 50% 38%, #000 38%, rgba(0,0,0,0.65) 58%, transparent 78%);
-}
-.hero-code-red .cr-dog-frame .tt-frame {
-  position: absolute;
+.hero-code-red .hero-ghost { display: none; }
+/* Full-bleed cinematic field — atmosphere to every edge, no side cut/blur */
+.hero-code-red .hero-stage {
+  background: transparent;
   inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center top;
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: normal;
-  /* slight dark crush of remaining jpeg bg via filter */
-  filter: contrast(1.05) brightness(0.96);
-}
-.hero-code-red .cr-dog-frame .tt-frame.is-front { opacity: 1; }
-
-/* Layer 3 — typography in LOWER half (vh anchors from target) */
-.hero-code-red .cr-copy,
-.hero-code-red .hero-copy {
-  position: absolute;
-  left: 50%;
-  top: 58vh;
-  bottom: auto;
-  transform: translateX(-50%);
-  width: min(920px, 92vw);
-  max-width: 920px;
-  margin: 0;
-  padding: 0;
-  z-index: 5;
-  text-align: center;
-  pointer-events: none;
-}
-.hero-code-red .hero-copy .btn,
-.hero-code-red .hero-copy a {
-  pointer-events: auto;
-}
-.hero-code-red .eyebrow {
-  color: rgba(255, 230, 220, 0.92);
-  font-size: clamp(9px, 0.7vw, 11px);
-  letter-spacing: 0.2em;
-  margin: 0 0 0.35em;
-}
-.hero-code-red .hero-title-stack {
-  gap: 0.02em;
-}
-.hero-code-red .hero-title-stack .ht-meet {
-  font-size: clamp(78px, 7vw, 104px);
-  line-height: 0.9;
-  letter-spacing: 0.01em;
-}
-.hero-code-red .hero-title-stack .ht-name {
-  font-size: clamp(56px, 5.4vw, 86px);
+  aspect-ratio: auto;
+  transform: none;
   max-width: none;
-  width: min(58vw, 900px);
-  line-height: 0.95;
-  text-shadow: 0 0 28px rgba(255, 40, 30, 0.55), 0 2px 0 rgba(0, 0, 0, 0.45);
 }
-.hero-code-red .hero-title-stack .ht-line {
-  font-size: clamp(52px, 4.9vw, 76px);
-  line-height: 0.95;
+.hero-code-red .hero-render {
+  -webkit-mask-image: none;
+          mask-image: none;
+  width: 100%;
+  height: 100%;
 }
-.hero-code-red .hero-sub {
-  color: rgba(247, 247, 243, 0.9);
-  max-width: 480px;
-  margin: 0.7em auto 1em;
-  font-size: clamp(13px, 0.95vw, 15px);
-  line-height: 1.4;
+.hero-code-red .scanline { display: none; }
+.hero-code-red .hero-glow { display: none; }
+.hero-code-red .hero-render > .render-vignette {
+  display: block;
+  /* Soft bottom wash for copy only — never darken/cut the sides */
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 58%,
+    rgba(10, 0, 0, 0.28) 78%,
+    rgba(8, 0, 0, 0.55) 100%
+  );
 }
-.hero-code-red .hero-ctas {
-  gap: 14px;
-  justify-content: center;
+.hero-code-red .tt-frame {
+  object-fit: cover;
+  object-position: center 42%;
+  mix-blend-mode: normal;
 }
-
+.hero-code-red .hero-title .painted,
+.hero-code-red .hero-title-stack .ht-name {
+  text-shadow: 0 0 32px rgba(255, 40, 30, 0.65), 0 2px 0 rgba(0, 0, 0, 0.4);
+}
 .hero-code-red .hero-spec,
-.hero-code-red .hero-tag {
-  position: absolute;
-  bottom: 7vh;
-  z-index: 5;
-  color: rgba(255, 110, 95, 0.95);
-  font-size: clamp(9px, 0.7vw, 11px);
-  line-height: 1.85;
-}
-.hero-code-red .hero-spec {
-  left: 34px;
-  text-align: left;
-}
-.hero-code-red .hero-tag {
-  right: 34px;
-  text-align: right;
-}
-.hero-code-red .hero-spec p:first-child { color: rgba(255, 170, 155, 0.95); }
+.hero-code-red .hero-tag,
 .hero-code-red .hero-scroll {
-  position: absolute;
-  left: 50%;
-  bottom: 2.4vh;
-  transform: translateX(-50%);
-  z-index: 5;
-  color: rgba(255, 110, 95, 0.95);
-  font-size: clamp(9px, 0.7vw, 11px);
+  color: rgba(255, 120, 100, 0.95);
 }
-
-@media (max-width: 900px) {
-  .hero-code-red .cr-dog {
-    top: 8%;
-    height: 95vh;
-  }
-  .hero-code-red .cr-copy,
-  .hero-code-red .hero-copy {
-    top: 52vh;
-    width: min(92vw, 560px);
-  }
-  .hero-code-red .hero-title-stack .ht-meet { font-size: clamp(42px, 11vw, 64px); }
-  .hero-code-red .hero-title-stack .ht-name { font-size: clamp(34px, 9vw, 54px); width: 90vw; }
-  .hero-code-red .hero-title-stack .ht-line { font-size: clamp(30px, 8vw, 46px); }
-  .hero-code-red .hero-spec {
-    left: 16px;
-    bottom: 10vh;
-  }
-  .hero-code-red .hero-tag { display: none; }
-}
+.hero-code-red .hero-spec p:first-child { color: rgba(255, 180, 160, 0.95); }
+.hero-code-red .hero-sub { color: rgba(247, 247, 243, 0.9); }
+.hero-code-red .eyebrow { color: var(--ac); }
+.hero-code-red .hero-footer { display: none; }
+.hero-code-red .render-slot,
+.hero-nova .render-slot { overflow: hidden; }
 
 /* Aathira's Nova — same mock layout in magenta/pink */
 .hero-nova {
@@ -668,7 +473,6 @@ figure { margin: 0; }
 .hero-nova .hero-sub { color: rgba(247, 247, 243, 0.9); }
 .hero-nova .eyebrow { color: var(--ac); }
 .hero-nova .hero-footer { display: none; }
-.hero-nova .render-slot { overflow: hidden; }
 
 /* ============================================================
    SPECIES SHOWCASE
@@ -1245,37 +1049,7 @@ figure { margin: 0; }
     width: min(92vw, 70svh); height: auto; aspect-ratio: 3 / 4;
     margin: 0 auto; flex: none;
   }
-  .hero-code-red {
-    height: 100svh;
-    max-height: 100svh;
-    padding: 0;
-    display: block;
-  }
-  .hero-code-red .cr-dog {
-    top: 7%;
-    height: 100vh;
-  }
-  .hero-code-red .cr-copy,
-  .hero-code-red .hero-copy {
-    top: 50vh;
-    bottom: auto;
-    width: min(92vw, 520px);
-  }
-  .hero-code-red .hero-spec {
-    position: absolute;
-    left: 16px;
-    bottom: max(56px, env(safe-area-inset-bottom) + 40px);
-    text-align: left;
-    margin: 0;
-    order: unset;
-  }
-  .hero-code-red .hero-scroll {
-    position: absolute;
-    left: 50%;
-    bottom: max(18px, env(safe-area-inset-bottom) + 10px);
-    transform: translateX(-50%);
-    margin: 0;
-  }
+  .hero-code-red .hero-stage,
   .hero-nova .hero-stage {
     position: absolute;
     inset: 0;
@@ -1504,257 +1278,4 @@ figure { margin: 0; }
     transition-duration: 0.15s !important;
   }
   .scanline { display: none; }
-}
-
-/* ============================================================
-   CODE RED HERO — REFINEMENT PATCH
-   Genome Noir · aathiraww/genome-noir
-   Paste this block at the END of styles.css (it overrides the
-   existing .hero-code-red rules by cascade order — no markup
-   changes required, index.html stays exactly as it is).
-   ============================================================ */
-
-/* --- Hero shell: one desktop viewport, nothing clipped ------- */
-.hero-code-red {
-  position: relative;
-  height: 100svh;
-  min-height: 520px;
-  overflow: hidden;
-  isolation: isolate;
-  background: #050203;
-}
-
-/* --- Atmosphere: cinematic red field, black only at corners -- */
-.hero-code-red .cr-atmosphere { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-
-.hero-code-red .cr-atmosphere-base {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 46% 20% at 50% 60%, rgba(255,52,44,.42), rgba(255,52,44,0) 72%),
-    radial-gradient(ellipse 90% 70% at 50% 40%, #8d0f15 0%, #620810 30%, #2c0407 60%, #0d0103 84%, #050203 100%);
-}
-
-/* Smoke plumes: full-viewport, blurred, screen-blended so they
-   never read as a rectangle and bleed past every hero edge. */
-.hero-code-red .cr-atmosphere-smoke {
-  position: absolute; inset: -20%;
-  mix-blend-mode: screen;
-  filter: blur(70px);
-  opacity: .62;
-  background:
-    radial-gradient(circle at 28% 62%, rgba(214,26,32,.85) 0%, rgba(214,26,32,0) 42%),
-    radial-gradient(circle at 72% 34%, rgba(255,60,50,.55) 0%, rgba(255,60,50,0) 38%),
-    radial-gradient(circle at 50% 82%, rgba(120,8,14,.9) 0%, rgba(120,8,14,0) 46%);
-  animation: crDriftA 52s ease-in-out infinite;
-}
-.hero-code-red .cr-atmosphere-smoke-b {
-  inset: -25%;
-  filter: blur(90px);
-  opacity: .5;
-  background:
-    radial-gradient(ellipse 40% 30% at 64% 70%, rgba(255,38,32,.7) 0%, rgba(255,38,32,0) 55%),
-    radial-gradient(ellipse 34% 26% at 22% 30%, rgba(180,14,20,.8) 0%, rgba(180,14,20,0) 60%);
-  animation: crDriftB 74s ease-in-out infinite;
-}
-
-/* Front plume — sits ABOVE the specimen so smoke wraps the
-   animal instead of only sitting behind it. */
-.hero-code-red .cr-atmosphere-glow {
-  position: absolute; inset: -15%;
-  z-index: 2;
-  mix-blend-mode: screen;
-  filter: blur(55px);
-  opacity: .78;
-  background:
-    radial-gradient(ellipse 30% 22% at 38% 74%, rgba(255,66,52,.55) 0%, rgba(255,66,52,0) 60%),
-    radial-gradient(ellipse 26% 18% at 68% 58%, rgba(255,40,34,.4) 0%, rgba(255,40,34,0) 62%);
-  animation: crDriftC 41s ease-in-out infinite;
-}
-
-/* Horizon light streak behind the collar */
-.hero-code-red .cr-atmosphere-flare {
-  position: absolute; left: 0; right: 0; top: 48%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255,70,60,.75) 22%, rgba(255,150,130,.9) 50%, rgba(255,70,60,.75) 78%, transparent);
-  filter: blur(1px);
-  opacity: .55;
-  mix-blend-mode: screen;
-}
-
-@keyframes crDriftA {
-  0%,100% { transform: translate3d(-6%,2%,0) scale(1.15) rotate(0deg); }
-  50%     { transform: translate3d(7%,-4%,0) scale(1.3) rotate(6deg); }
-}
-@keyframes crDriftB {
-  0%,100% { transform: translate3d(5%,-3%,0) scale(1.25); }
-  50%     { transform: translate3d(-8%,5%,0) scale(1.4); }
-}
-@keyframes crDriftC {
-  0%,100% { transform: translate3d(0,4%,0) scale(1.1); }
-  50%     { transform: translate3d(-4%,-6%,0) scale(1.35); }
-}
-
-/* --- Specimen: large, top-anchored, edgeless ------------------ */
-.hero-code-red .cr-dog { position: absolute; inset: 0; z-index: 1; }
-
-.hero-code-red .cr-dog-frame {
-  position: absolute;
-  left: 50%;
-  top: -1.5%;
-  bottom: auto;
-  height: 115%;
-  width: auto;
-  margin: 0;
-  transform: translateX(-50%);
-  /* Single-layer feather: the falloff completes INSIDE the box,
-     so there is no rectangular photo boundary anywhere. */
-  -webkit-mask-image: radial-gradient(ellipse 48% 60% at 50% 40%, #000 0%, #000 64%, rgba(0,0,0,.5) 84%, transparent 100%);
-          mask-image: radial-gradient(ellipse 48% 60% at 50% 40%, #000 0%, #000 64%, rgba(0,0,0,.5) 84%, transparent 100%);
-  filter: contrast(1.08) saturate(1.12) brightness(1.12) drop-shadow(0 0 90px rgba(255,30,26,.34));
-  background: none;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-}
-.hero-code-red .cr-dog-frame::before,
-.hero-code-red .cr-dog-frame::after { content: none; display: none; }
-
-.hero-code-red .cr-dog-frame .tt-frame {
-  position: absolute; inset: 0;
-  height: 100%;
-  width: auto;
-  max-width: none;
-  margin: 0 auto;
-  object-fit: contain;
-  object-position: 50% 0%;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* --- Depth grade over the plate (keeps the head bright) ------- */
-.hero-code-red::before,
-.hero-code-red::after {
-  content: "";
-  display: block;
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-.hero-code-red::before {
-  background:
-    radial-gradient(ellipse 78% 72% at 50% 42%, rgba(0,0,0,0) 55%, rgba(5,2,3,.45) 84%, rgba(5,2,3,.9) 100%),
-    linear-gradient(to bottom, rgba(5,2,3,.7) 0%, rgba(5,2,3,.08) 10%, rgba(5,2,3,0) 34%, rgba(5,2,3,.22) 66%, rgba(5,2,3,.8) 88%, #050203 100%);
-}
-/* Fine film grain */
-.hero-code-red::after {
-  opacity: .05;
-  mix-blend-mode: overlay;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.5) 0 1px, rgba(0,0,0,.5) 1px 2px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.4) 0 1px, rgba(0,0,0,.35) 1px 3px);
-}
-
-/* --- Typography block: lower third, clear of the muzzle ------- */
-.hero-code-red .cr-copy,
-.hero-code-red .hero-copy {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(52px, 7.5vh, 86px);
-  transform: translateX(-50%);
-  z-index: 6;
-  width: min(1120px, 90vw);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: clamp(10px, 1.4vh, 18px);
-}
-.hero-code-red .eyebrow {
-  margin: 0;
-  font-size: clamp(9px, .76vw, 11.5px);
-  letter-spacing: .34em;
-  color: rgba(255,86,72,.92);
-  text-shadow: 0 0 22px rgba(255,30,26,.6);
-}
-.hero-code-red .hero-title-stack {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(2px, .5vh, 8px);
-  line-height: .86;
-}
-.hero-code-red .hero-title-stack .ht-meet {
-  font-size: clamp(38px, 6.2vh, 72px);
-  color: #fff;
-  text-shadow: 0 6px 40px rgba(0,0,0,.8), 0 0 90px rgba(255,40,34,.35);
-}
-.hero-code-red .hero-title-stack .ht-name {
-  font-size: clamp(34px, 7.4vh, 86px);
-  line-height: .9;
-  color: #ff1e18;
-  transform: rotate(-1.2deg);
-  text-shadow: 0 0 34px rgba(255,26,20,.75), 0 0 90px rgba(255,26,20,.45), 0 4px 26px rgba(0,0,0,.6);
-}
-.hero-code-red .hero-title-stack .ht-line {
-  font-size: clamp(38px, 6.8vh, 80px);
-  color: #fff;
-  text-shadow: 0 6px 40px rgba(0,0,0,.85), 0 0 90px rgba(255,40,34,.3);
-}
-.hero-code-red .hero-sub {
-  margin: 0;
-  max-width: min(52ch, 72vw);
-  font-size: clamp(11px, 1.5vh, 14.5px);
-  line-height: 1.65;
-  color: rgba(255,236,232,.82);
-  text-wrap: pretty;
-}
-.hero-code-red .hero-ctas {
-  margin-top: clamp(2px, .8vh, 10px);
-  gap: clamp(10px, 1vw, 16px);
-}
-
-/* --- Corner metadata + scroll cue ---------------------------- */
-.hero-code-red .hero-spec,
-.hero-code-red .hero-tag {
-  position: absolute;
-  bottom: clamp(90px, 14vh, 150px);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: clamp(9px, .74vw, 11px);
-  color: rgba(255,58,48,.9);
-  text-shadow: 0 0 18px rgba(255,30,26,.55);
-}
-.hero-code-red .hero-spec { left: clamp(20px, 3vw, 44px); letter-spacing: .14em; }
-.hero-code-red .hero-tag  { right: clamp(20px, 3vw, 44px); letter-spacing: .16em; text-align: right; }
-.hero-code-red .hero-spec p,
-.hero-code-red .hero-tag p { margin: 0; }
-
-.hero-code-red .hero-scroll {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(14px, 2.2vh, 26px);
-  transform: translateX(-50%);
-  z-index: 6;
-  font-size: clamp(8.5px, .72vw, 10.5px);
-  letter-spacing: .26em;
-  color: rgba(255,58,48,.85);
-}
-
-/* --- Mobile: same composition, compressed -------------------- */
-@media (max-width: 820px) {
-  .hero-code-red .cr-dog-frame { height: 92%; top: 2%; }
-  .hero-code-red .hero-tag { display: none; }
-  .hero-code-red .hero-spec { bottom: clamp(70px, 11vh, 110px); }
-  .hero-code-red .cr-copy,
-  .hero-code-red .hero-copy { width: 92vw; bottom: clamp(40px, 6vh, 64px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-code-red .cr-atmosphere-smoke,
-  .hero-code-red .cr-atmosphere-glow { animation: none; }
 }
