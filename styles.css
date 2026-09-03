@@ -377,91 +377,107 @@ figure { margin: 0; }
   position: absolute;
   inset: 0;
   background:
-    /* wide cinematic field — red haze reaches far left/right before going black */
-    radial-gradient(120% 80% at 50% 40%, rgba(90, 12, 12, 0.85), transparent 70%),
-    radial-gradient(80% 55% at 18% 55%, rgba(70, 8, 8, 0.45), transparent 60%),
-    radial-gradient(80% 55% at 82% 55%, rgba(70, 8, 8, 0.45), transparent 60%),
+    radial-gradient(100% 75% at 50% 36%, rgba(110, 18, 18, 0.95), transparent 68%),
+    radial-gradient(80% 55% at 18% 55%, rgba(70, 8, 8, 0.5), transparent 60%),
+    radial-gradient(80% 55% at 82% 55%, rgba(70, 8, 8, 0.5), transparent 60%),
     radial-gradient(100% 70% at 50% 100%, rgba(25, 0, 0, 0.98), transparent 55%),
     linear-gradient(180deg, #040101 0%, #140303 48%, #1c0606 78%, #050101 100%);
 }
-/* Primary smoke — full viewport span, soft blur, no oval box mask */
+/* Primary smoke — denser through the center behind the dog */
 .hero-code-red .cr-atmosphere-smoke {
   position: absolute;
   inset: -25% -15%;
   background-image: url("assets/code-red-smoke.jpg");
-  background-size: 140% 140%;
-  background-position: center 40%;
+  background-size: 160% 160%;
+  background-position: center 28%;
   background-repeat: no-repeat;
-  opacity: 0.55;
-  filter: blur(42px) saturate(1.25) brightness(0.8) contrast(1.05);
+  opacity: 0.85;
+  filter: blur(34px) saturate(1.4) brightness(1) contrast(1.1);
   mix-blend-mode: screen;
-  /* Only feather the extreme edges — still spans nearly full width */
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 6%, #000 92%, transparent 100%);
   -webkit-mask-composite: source-in;
           mask-image:
-    linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 6%, #000 92%, transparent 100%);
           mask-composite: intersect;
 }
 .hero-code-red .cr-atmosphere-smoke-b {
   inset: -35% -20%;
-  opacity: 0.38;
-  filter: blur(64px) saturate(1.3) brightness(0.7);
-  transform: scaleX(-1) scale(1.15);
-  background-position: 40% 55%;
+  opacity: 0.5;
+  filter: blur(56px) saturate(1.4) brightness(0.85);
+  transform: scaleX(-1) scale(1.18);
+  background-position: 45% 38%;
   mix-blend-mode: soft-light;
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 5%, #000 94%, transparent 100%);
   -webkit-mask-composite: source-in;
           mask-image:
-    linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 5%, #000 94%, transparent 100%);
           mask-composite: intersect;
 }
-/* Hot core + wide secondary wash so haze isn't a center column */
+/* Wide wash + hot core */
 .hero-code-red .cr-atmosphere-glow {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(42% 48% at 50% 34%, rgba(255, 55, 40, 0.42), transparent 70%),
-    radial-gradient(95% 60% at 50% 48%, rgba(150, 22, 22, 0.28), transparent 78%),
-    radial-gradient(50% 40% at 15% 60%, rgba(120, 16, 16, 0.2), transparent 70%),
-    radial-gradient(50% 40% at 85% 60%, rgba(120, 16, 16, 0.2), transparent 70%);
+    radial-gradient(48% 52% at 50% 30%, rgba(255, 60, 42, 0.55), transparent 68%),
+    radial-gradient(85% 58% at 50% 42%, rgba(180, 28, 28, 0.4), transparent 76%),
+    radial-gradient(50% 40% at 15% 60%, rgba(120, 16, 16, 0.22), transparent 70%),
+    radial-gradient(50% 40% at 85% 60%, rgba(120, 16, 16, 0.22), transparent 70%);
   mix-blend-mode: screen;
   opacity: 1;
-  filter: blur(2px);
+  filter: blur(3px);
+}
+/* Dense volumetric bloom directly behind head / neck / shoulders */
+.hero-code-red .cr-atmosphere-core {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  transform: translate(-50%, -50%);
+  width: min(98vw, 1400px);
+  height: min(88vh, 960px);
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(34% 38% at 50% 40%, rgba(255, 85, 60, 0.85), transparent 58%),
+    radial-gradient(52% 50% at 50% 46%, rgba(220, 35, 30, 0.7), transparent 68%),
+    radial-gradient(78% 68% at 50% 50%, rgba(140, 18, 18, 0.45), transparent 78%);
+  filter: blur(32px) saturate(1.25);
+  mix-blend-mode: screen;
+  opacity: 1;
 }
 .hero-code-red .cr-atmosphere-flare {
   position: absolute;
   left: 0;
   right: 0;
-  top: 30%;
-  height: 160px;
+  top: 29%;
+  height: 180px;
   transform: translateY(-50%);
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 50, 40, 0.1) 12%,
-    rgba(255, 70, 55, 0.4) 50%,
-    rgba(255, 50, 40, 0.1) 88%,
+    rgba(255, 50, 40, 0.12) 10%,
+    rgba(255, 80, 60, 0.5) 50%,
+    rgba(255, 50, 40, 0.12) 90%,
     transparent 100%
   );
-  filter: blur(18px);
-  opacity: 0.8;
+  filter: blur(20px);
+  opacity: 0.9;
   mix-blend-mode: screen;
 }
 
-/* ---- Dog foreground (subject only; atmosphere is separate) ---- */
+/* ---- Dog foreground — larger / closer ---- */
 .hero-code-red .cr-dog {
   position: absolute;
   left: 50%;
-  top: 5%;
+  top: -8%;
   transform: translateX(-50%);
   z-index: 2;
-  height: 110vh;
+  height: 142vh;
   width: auto;
   max-width: none;
   background: none;
@@ -478,9 +494,9 @@ figure { margin: 0; }
   margin: 0;
   overflow: visible;
   background: none;
-  /* Subject-only soft mask — no portrait smoke panel */
-  -webkit-mask-image: radial-gradient(52% 58% at 50% 38%, #000 38%, rgba(0,0,0,0.65) 58%, transparent 78%);
-          mask-image: radial-gradient(52% 58% at 50% 38%, #000 38%, rgba(0,0,0,0.65) 58%, transparent 78%);
+  /* Soft subject mask — smoke wraps around silhouette */
+  -webkit-mask-image: radial-gradient(66% 72% at 50% 40%, #000 48%, rgba(0,0,0,0.72) 68%, transparent 90%);
+          mask-image: radial-gradient(66% 72% at 50% 40%, #000 48%, rgba(0,0,0,0.72) 68%, transparent 90%);
 }
 .hero-code-red .cr-dog-frame .tt-frame {
   position: absolute;
@@ -492,8 +508,7 @@ figure { margin: 0; }
   opacity: 0;
   pointer-events: none;
   mix-blend-mode: normal;
-  /* slight dark crush of remaining jpeg bg via filter */
-  filter: contrast(1.05) brightness(0.96);
+  filter: contrast(1.04) brightness(0.98);
 }
 .hero-code-red .cr-dog-frame .tt-frame.is-front { opacity: 1; }
 
@@ -584,8 +599,8 @@ figure { margin: 0; }
 
 @media (max-width: 900px) {
   .hero-code-red .cr-dog {
-    top: 8%;
-    height: 95vh;
+    top: -2%;
+    height: 115vh;
   }
   .hero-code-red .cr-copy,
   .hero-code-red .hero-copy {
