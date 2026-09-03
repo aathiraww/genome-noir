@@ -350,6 +350,7 @@ figure { margin: 0; }
 .hero-code-red::before {
   background: radial-gradient(42% 34% at 50% 38%, rgba(255, 60, 40, 0.22), transparent 70%);
   opacity: 1;
+  filter: blur(2px);
 }
 .hero-code-red .hero-ghost { display: none; }
 /* Full-bleed cinematic field — atmosphere to every edge, no side cut/blur */
