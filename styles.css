@@ -512,13 +512,13 @@ figure { margin: 0; }
 }
 .hero-code-red .cr-dog-frame .tt-frame.is-front { opacity: 1; }
 
-/* Layer 3 — typography in LOWER half (vh anchors from target) */
+/* Layer 3 — typography in LOWER half; reserved bottom gap for scroll cue */
 .hero-code-red .cr-copy,
 .hero-code-red .hero-copy {
   position: absolute;
   left: 50%;
-  top: 58vh;
-  bottom: auto;
+  top: auto;
+  bottom: clamp(52px, 7.5vh, 84px);
   transform: translateX(-50%);
   width: min(920px, 92vw);
   max-width: 920px;
@@ -542,37 +542,38 @@ figure { margin: 0; }
   gap: 0.02em;
 }
 .hero-code-red .hero-title-stack .ht-meet {
-  font-size: clamp(78px, 7vw, 104px);
+  font-size: clamp(64px, 6.2vw, 96px);
   line-height: 0.9;
   letter-spacing: 0.01em;
 }
 .hero-code-red .hero-title-stack .ht-name {
-  font-size: clamp(56px, 5.4vw, 86px);
+  font-size: clamp(48px, 5vw, 80px);
   max-width: none;
   width: min(58vw, 900px);
   line-height: 0.95;
   text-shadow: 0 0 28px rgba(255, 40, 30, 0.55), 0 2px 0 rgba(0, 0, 0, 0.45);
 }
 .hero-code-red .hero-title-stack .ht-line {
-  font-size: clamp(52px, 4.9vw, 76px);
+  font-size: clamp(44px, 4.5vw, 70px);
   line-height: 0.95;
 }
 .hero-code-red .hero-sub {
   color: rgba(247, 247, 243, 0.9);
   max-width: 480px;
-  margin: 0.7em auto 1em;
+  margin: 0.55em auto 0.85em;
   font-size: clamp(13px, 0.95vw, 15px);
   line-height: 1.4;
 }
 .hero-code-red .hero-ctas {
   gap: 14px;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .hero-code-red .hero-spec,
 .hero-code-red .hero-tag {
   position: absolute;
-  bottom: 7vh;
+  bottom: clamp(56px, 9vh, 96px);
   z-index: 5;
   color: rgba(255, 110, 95, 0.95);
   font-size: clamp(9px, 0.7vw, 11px);
@@ -590,11 +591,14 @@ figure { margin: 0; }
 .hero-code-red .hero-scroll {
   position: absolute;
   left: 50%;
-  bottom: 2.4vh;
+  bottom: clamp(10px, 1.8vh, 22px);
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 6;
   color: rgba(255, 110, 95, 0.95);
   font-size: clamp(9px, 0.7vw, 11px);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
@@ -604,7 +608,8 @@ figure { margin: 0; }
   }
   .hero-code-red .cr-copy,
   .hero-code-red .hero-copy {
-    top: 52vh;
+    top: auto;
+    bottom: max(64px, env(safe-area-inset-bottom) + 52px);
     width: min(92vw, 560px);
   }
   .hero-code-red .hero-title-stack .ht-meet { font-size: clamp(42px, 11vw, 64px); }
@@ -612,9 +617,12 @@ figure { margin: 0; }
   .hero-code-red .hero-title-stack .ht-line { font-size: clamp(30px, 8vw, 46px); }
   .hero-code-red .hero-spec {
     left: 16px;
-    bottom: 10vh;
+    bottom: max(72px, env(safe-area-inset-bottom) + 56px);
   }
   .hero-code-red .hero-tag { display: none; }
+  .hero-code-red .hero-scroll {
+    bottom: max(12px, env(safe-area-inset-bottom) + 8px);
+  }
 }
 
 /* Aathira's Nova — same mock layout in magenta/pink */
@@ -1272,14 +1280,14 @@ figure { margin: 0; }
   }
   .hero-code-red .cr-copy,
   .hero-code-red .hero-copy {
-    top: 50vh;
-    bottom: auto;
+    top: auto;
+    bottom: max(64px, env(safe-area-inset-bottom) + 52px);
     width: min(92vw, 520px);
   }
   .hero-code-red .hero-spec {
     position: absolute;
     left: 16px;
-    bottom: max(56px, env(safe-area-inset-bottom) + 40px);
+    bottom: max(72px, env(safe-area-inset-bottom) + 56px);
     text-align: left;
     margin: 0;
     order: unset;
@@ -1287,7 +1295,7 @@ figure { margin: 0; }
   .hero-code-red .hero-scroll {
     position: absolute;
     left: 50%;
-    bottom: max(18px, env(safe-area-inset-bottom) + 10px);
+    bottom: max(12px, env(safe-area-inset-bottom) + 8px);
     transform: translateX(-50%);
     margin: 0;
   }
